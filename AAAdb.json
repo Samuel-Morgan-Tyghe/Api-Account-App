@@ -1,7 +1,7 @@
 {
   "AAAUsers": [
     {
-      "id": 7,
+      "id": 117,
       "email": "michael.lawson@reqres.in",
       "first_name": "Michael",
       "last_name": "Lawson",
@@ -9,7 +9,7 @@
       "password": "password"
     },
     {
-      "id": 8,
+      "id": 118,
       "email": "lindsay.ferguson@reqres.in",
       "first_name": "Lindsay",
       "last_name": "Ferguson",
@@ -17,7 +17,7 @@
       "password": "password"
     },
     {
-      "id": 9,
+      "id": 119,
       "email": "tobias.funke@reqres.in",
       "first_name": "Tobias",
       "last_name": "Funke",
@@ -25,7 +25,7 @@
       "password": "password"
     },
     {
-      "id": 10,
+      "id": 1110,
       "email": "byron.fields@reqres.in",
       "first_name": "Byron",
       "last_name": "Fields",
@@ -33,7 +33,7 @@
       "password": "password"
     },
     {
-      "id": 11,
+      "id": 1111,
       "email": "george.edwards@reqres.in",
       "first_name": "George",
       "last_name": "Edwards",
@@ -41,7 +41,7 @@
       "password": "password"
     },
     {
-      "id": 12,
+      "id": 1112,
       "email": "rachel.howell@reqres.in",
       "first_name": "Rachel",
       "last_name": "Howell",
@@ -49,39 +49,13 @@
       "password": "password"
     },
     {
-      "email": "samuelmorganvisual@gmail.com",
+      "id": 1121,
+      "email": "samuelmorgdsadsaanvisual@gmail.com",
       "first_name": "Samuel",
       "last_name": "Morgan-Tyghe",
-      "password": "gnjkngkdfn",
-      "id": 13
-    },
-    {
-      "email": "Samuel.Morgan13@bathspa.ac.uk",
-      "first_name": "Samuel",
-      "last_name": "Morgan-Tyghe",
-      "password": "hgfhfghfg",
-      "id": 14
-    },
-    {
-      "email": "automhgfhfgated@fringeartsbath.co.uk",
-      "first_name": "Samuel",
-      "last_name": "Morgan-Tyghe",
-      "password": "dsadsadsadsa",
-      "id": 15
-    },
-    {
-      "email": "chloe.tyghe12@bathspa.ac.uk",
-      "first_name": "Chloe",
-      "last_name": "Tyghe",
-      "password": "dsadsad",
-      "id": 16
-    },
-    {
-      "email": "chloe.tyghe1sds2@bathspa.ac.uk",
-      "first_name": "Chloe",
-      "last_name": "Tyghe",
-      "password": "dsadsadsa",
-      "id": 17
+      "avatar": "https://stroseschool.stroselions.net/wp-content/uploads/2018/04/profile-blank-reva.png",
+      "password": "dsadsadsa"
+
     }
   ]
 }

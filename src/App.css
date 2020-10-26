@@ -5,7 +5,7 @@
 .App {
   text-align: center;
   font-family: 'jost';
-
+  overflow: "auto"
 }
 
 
@@ -47,13 +47,11 @@
   height: 100%;
   text-align: center;
   display: flex;
+  position: fixed;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  position: fixed;
   background-color: rgba(255,255,255,0.838);
-  margin: auto;
-  z-index: 1;
   }
 
   .inner{
@@ -89,15 +87,18 @@
 
 .nav-links {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   list-style: none;
-  z-index: 9;
-  position: fixed;
   height: 50px;
   background-color: white;
   width: 100%;
 }
+
+
+
+
+
 
 .flagValidator{
 
@@ -129,4 +130,78 @@ display: none;
 
 .flagWrongPassword{
   display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.outerApi{
+  width: 75%;
+  height: 75%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(255,255,255,0.838);
+  z-index: 1;
+  margin: auto;
+}
+
+
+
+
+.flexRow{
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.apiList{
+  margin: auto;
+  padding: auto;
+  justify-content: center;
+  align-items: baseline;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+
+
+}
+
+.apiListInner{
+  border: 1px solid green;
+  margin: auto;
+
+}
+
+.flexcollumn{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: baseline;
+  border: 1px solid salmon ;
+
+  margin: auto;
+
+}
+
+.editableSize{
+  border: 1px solid blue;
+margin: auto;
+  align-items: baseline;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
 }

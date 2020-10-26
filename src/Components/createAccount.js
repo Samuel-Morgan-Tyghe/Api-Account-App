@@ -17,7 +17,7 @@ class CreateAccountForm extends React.Component {
       fname: '',
       lname: '',
       password: '',
-      avatar: '',
+      img: '',
       emailInUse: 'emailInUse',
       emailClass: 'emailClass'
     };
@@ -81,6 +81,7 @@ class CreateAccountForm extends React.Component {
     let lname = this.state.lname
     let pwd = this.state.password
     let img = this.state.img
+    if (img === ''){ img = 'src\Assets\iconfinder_unknown_403017.png'}
 
     axios({
       method: 'get',
@@ -145,7 +146,7 @@ class CreateAccountForm extends React.Component {
           <input type="password"  id="passwordCA"  placeholder="Enter Password" name="password" autoComplete="off" value={this.state.password} onChange={this.handleChange} required></input><br></br>
 
           <label htmlFor="img">Choose Avatar:</label><br></br>
-          <input type="file" id="img" name="img" accept="image/*"></input><br></br>
+          <input type="file" id="img" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
 
           <input type="checkbox" id="tnd" name="tnd" value="tnd" required></input><br></br>
           <label htmlFor="vehicle1"><p>Tick to accept the <a href="https://en.wikipedia.org/wiki/Terms_of_service">Terms And Conditions</a></p> </label><br></br>
