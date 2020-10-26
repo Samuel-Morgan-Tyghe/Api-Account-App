@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import isEmail from 'validator/lib/isEmail';
+
 
 
 
@@ -15,7 +17,9 @@ class CreateAccountForm extends React.Component {
       fname: '',
       lname: '',
       password: '',
-      avatar: ''
+      avatar: '',
+      emailInUse: 'emailInUse',
+      emailClass: 'emailClass'
     };
 
 
@@ -24,18 +28,54 @@ class CreateAccountForm extends React.Component {
   }
 
   handleChange(event) {
+
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
 
+
+    
+
     this.setState({
       [name]: value
     });
+
+
+    if(name === 'email'){
+      if ( !isEmail(value)){
+        this.setState({emailClass: 'emailClass flagValidator'})
+
+        }else{
+          console.log(value)
+          axios({
+            method: 'get',
+            url: 'http://localhost:3000/AAAUsers?email='+value,
+          })
+          .then((response) => {
+            console.log(response.data.length)
+
+            if(response.data.length === 0){
+              this.setState({emailInUse: 'emailInUse'})
+            }else{
+              this.setState({emailInUse: 'flagEmailInUse'})
+              console.log('triggered')
+            }
+            }, (error) => {
+  
+              console.log(error);
+            });
+            this.setState({emailClass: 'emailClass'})
+        }
+      }
+
+
+
+
+
   }
 
 
   handleSubmit(event) {
-
     let email = this.state.email;
     let fname = this.state.fname
     let lname = this.state.lname
@@ -91,8 +131,8 @@ class CreateAccountForm extends React.Component {
 
 
 <label htmlFor="email" >Enter your email:</label><br></br>
-          <input type="email"  id="emailCA"  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}   required></input><br></br>
-          <span id='emailInUse'>This Email Is already Registered</span>
+          <input type="email"  id="emailCA"  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}  className={this.state.emailClass}   required></input><br></br>
+          <span className={ this.state.emailInUse}>This Email Is already Registered</span>
 
 
           <label htmlFor="fname" >First name:</label><br></br>

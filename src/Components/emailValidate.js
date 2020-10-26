@@ -2,8 +2,7 @@ import React from 'react';
 
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
-import {useForm} from 'react-hook-form';
-import isEmail from "validator/lib/isEmail";
+import isEmail from 'validator/lib/isEmail';
 
 
 class EmailValidate extends React.Component {
@@ -11,7 +10,7 @@ class EmailValidate extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: '', emailClass: 'emailClass' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +21,15 @@ class EmailValidate extends React.Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
+
+
+    if ( !isEmail( event.target.value)){
+      console.log('working')
+      this.setState({emailClass: 'emailClass flagValidator'})
+      }else{
+      this.setState({emailClass: 'emailClass'})
+      }
+   
   }
 
   handleSubmit(event) {
@@ -36,6 +44,7 @@ class EmailValidate extends React.Component {
     })
     .then((response) => {
       if(response.data.length === 0){
+        
 
         this.setState({ redirect: "/CreateAccountForm" });
 
@@ -43,6 +52,7 @@ class EmailValidate extends React.Component {
         this.setState({ redirect: "/LoginForm" });
 
       }
+
 
     }, (error) => {
       
@@ -59,14 +69,6 @@ class EmailValidate extends React.Component {
 
   render() {
 
-    const { register, handleSubmit, errors, formState } = useForm({
-      mode: "onBlur",
-    });
-
-    function onSubmit(data) {
-      console.log(data);
-    }
-
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
     }
@@ -77,13 +79,7 @@ class EmailValidate extends React.Component {
       <form name="Email Validator" id='emailValidate'  method="post"  className='wrapper' onSubmit={this.handleSubmit}>
           <label htmlFor="email" >Enter your email:</label><br></br>
 
-          <input type="email" 
-          ref={register({
-          required: true,
-          validate: (input) => isEmail(input), // returns true if valid
-        })}
-          id="email"  placeholder="Enter Email" name="email" value={this.state.value} onChange={this.handleChange} style={{ ...styles.input, borderColor: errors.email && "red" }}
-          required></input>
+          <input type="email" id="email"  placeholder="Enter Email" name="email" value={this.state.value} onChange={this.handleChange} className={this.state.emailClass}  required></input>
 
           <br></br>
 

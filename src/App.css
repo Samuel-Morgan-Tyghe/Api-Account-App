@@ -98,3 +98,35 @@
   background-color: white;
   width: 100%;
 }
+
+.flagValidator{
+
+  border: dashed red;
+}
+
+.emailInUse{
+display: none;
+}
+
+.flagEmailInUse{
+  display: flex;
+
+}
+
+.emailNotInUse{
+  display: none;
+}
+
+.flagEmailInUse{
+  display: flex;
+
+
+}
+
+.wrongPassword{
+  display: none;
+}
+
+.flagWrongPassword{
+  display: flex;
+}

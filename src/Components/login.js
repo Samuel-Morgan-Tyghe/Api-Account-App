@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import {Link} from 'react-router-dom';
+import isEmail from 'validator/lib/isEmail';
 
 
 
@@ -15,7 +16,12 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: '', //PASS EMAIL HERE FROM emailVal
-      password: ''
+      password: '',
+      emailClass: 'emailClass',
+      emailNotInUse: 'emailNotInUse',
+      wrongPassword: 'wrongPassword',
+      submitDisable: 'true'
+
     };
 
 
@@ -36,7 +42,40 @@ class LoginForm extends React.Component {
     this.setState({
       [name]: value
     });
-  }
+
+    
+    if(name === 'email'){
+      if ( isEmail( event.target.value)){
+        this.setState({submitDisable: 'true'})
+          console.log(value)
+          axios({
+            method: 'get',
+            url: 'http://localhost:3000/AAAUsers?email='+value,
+          })
+          .then((response) => {
+
+            if(response.data.length === 0){
+              this.setState({emailNotInUse: 'emailNotInUse flagEmailInUse'})
+            }else{
+              this.setState({submitDisable: 'false'})
+
+              this.setState({emailNotInUse: 'emailNotInUse'})
+
+            }
+            }, (error) => {
+  
+              console.log(error);
+            });
+
+            this.setState({emailClass:  'emailClass'})
+    }
+      }
+    }
+  
+
+
+
+  
 
   handleSubmit(event) {
 
@@ -50,27 +89,18 @@ class LoginForm extends React.Component {
      
     })
     .then((response) => {
-
-      if(response.data.length === 0){
-
-        // showCreateAccountRedirect()
-        }else{
-
           if(response.data[0].password === pwd){
             this.setState({ redirect: "/tohomepage" });
-
-
           }else{
-            // showIncorrectPassword ()      
+            this.setState({ wrongPassword: "wrongPassword flagWrongPassword" });
             }
 
+        }, (error) => {
 
-        }
-      
-        console.log(response);
-    }, (error) => {
       console.log(error);
+
     });
+
     event.preventDefault();
   }
 
@@ -82,13 +112,13 @@ class LoginForm extends React.Component {
       <form name="loginForm"  id='loginVisibility' method="post"  className='wrapper' onSubmit={this.handleSubmit}>
 
       <label htmlFor="email"  >Enter your email:</label><br></br>
-          <input type="email"  id="emailL"  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}   required></input><br></br>
-          <span id='emailNotInUse'>This Email Is Not Registered</span>
+          <input type="email"  className={this.state.emailClass}  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}   required></input><br></br>
+          <span className={this.state.emailNotInUse}>This Email Is Not Registered</span>
 
           <div >
           <label htmlFor="pwd">Password:</label><br></br>
           <input type="password"  placeholder="Enter Password" id="passwordL" name="password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required></input><br></br>
-          <span id='passwordIncorrect'>This Password Is Not Correct</span>
+          <span className={this.state.wrongPassword}>This Password Is Not Correct</span>
 
           </div>
 
