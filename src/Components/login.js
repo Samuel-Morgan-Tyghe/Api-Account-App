@@ -1,7 +1,13 @@
 import React from 'react';
 
 import axios from 'axios';
-import {showCreateAccount,showCreateAccountRedirect,showIncorrectPassword, hideRedirect} from './showhideContent.js'
+import { Redirect } from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
+
+
+
+
 
 
 class LoginForm extends React.Component {
@@ -16,6 +22,11 @@ class LoginForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  
+   
+
+
 
   handleChange(event) {
     const target = event.target;
@@ -42,15 +53,15 @@ class LoginForm extends React.Component {
 
       if(response.data.length === 0){
 
-        showCreateAccountRedirect()
+        // showCreateAccountRedirect()
         }else{
 
           if(response.data[0].password === pwd){
-            hideRedirect()
-            //next page
+            this.setState({ redirect: "/tohomepage" });
+
 
           }else{
-            showIncorrectPassword ()      
+            // showIncorrectPassword ()      
             }
 
 
@@ -64,6 +75,9 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
     return (
       <form name="loginForm"  id='loginVisibility' method="post"  className='wrapper' onSubmit={this.handleSubmit}>
 
@@ -80,14 +94,31 @@ class LoginForm extends React.Component {
 
 
         <div className='outerButtons'>
-        <input type="button" value='Create Account' id="CreateAccountRedirect" onClick={showCreateAccount}></input>
+        <Link id="CreateAccountRedirect" to="/CreateAccountForm">CreateAccountForm</Link>
         <input type="submit" value="Submit" />
         </div>
 
 
       </form>
+      
+      // wirecast react ,  1.5 speed code development, and keywords to research    4h
 
-       
+      // funtioning, routing react-- hide/show. react validation, api functions(list, update (updating as loading before axios response(button is pressed)),
+      // delete) loading gif(maybe delay api)  ignore triangle(two page/signup/login) 
+
+      // check sources from 2019 atleast
+
+      // react router dom 
+      // tutorials this.state show hide elements react
+      // finish logic
+
+      // react library, react validations, before submit 
+
+
+
+      // styling and responsive
+
+
 
 
     );

@@ -1,8 +1,7 @@
 import React from 'react';
-
 import axios from 'axios';
-import {showLogin,showLoginRedirect,hideRedirect} from './showhideContent.js'
-
+import { Redirect } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 
@@ -34,6 +33,7 @@ class CreateAccountForm extends React.Component {
     });
   }
 
+
   handleSubmit(event) {
 
     let email = this.state.email;
@@ -63,13 +63,12 @@ class CreateAccountForm extends React.Component {
         })
 
 
-
-
-
-        hideRedirect()
-      // go to homepage
+      this.setState({ redirect: "/tohomepage" });
       }else{
-        showLoginRedirect()
+
+
+
+        // showLoginRedirect()
       }
     
       console.log(response);
@@ -77,27 +76,16 @@ class CreateAccountForm extends React.Component {
       console.log(error);
     });
     
-
-
-
-    
-
-
-
-
-
-
-
-
     event.preventDefault();
 
-
-    
   }
 
   
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
     return (
       <form name="Create Account"  id='createAccountVisibility' method="post"  className='wrapper' onSubmit={this.handleSubmit}>
 
@@ -124,7 +112,7 @@ class CreateAccountForm extends React.Component {
 
 
           <div className='outerButtons'>
-          <input type="button" value='login' id="loginRedirect" onClick={showLogin}></input>
+          <Link  to="/LoginForm" id="loginRedirect" >LoginForm</Link>
           <input type="submit" value="Submit" />
           <input type="reset"></input>
           </div>

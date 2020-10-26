@@ -6,7 +6,7 @@
       "first_name": "Michael",
       "last_name": "Lawson",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg",
-      "password":"password" 
+      "password": "password"
     },
     {
       "id": 8,
@@ -14,8 +14,7 @@
       "first_name": "Lindsay",
       "last_name": "Ferguson",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/araa3185/128.jpg",
-      "password":"password" 
-
+      "password": "password"
     },
     {
       "id": 9,
@@ -23,8 +22,7 @@
       "first_name": "Tobias",
       "last_name": "Funke",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg",
-      "password":"password" 
-
+      "password": "password"
     },
     {
       "id": 10,
@@ -32,8 +30,7 @@
       "first_name": "Byron",
       "last_name": "Fields",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/russoedu/128.jpg",
-      "password":"password" 
-
+      "password": "password"
     },
     {
       "id": 11,
@@ -41,8 +38,7 @@
       "first_name": "George",
       "last_name": "Edwards",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mrmoiree/128.jpg",
-      "password":"password" 
-
+      "password": "password"
     },
     {
       "id": 12,
@@ -50,9 +46,42 @@
       "first_name": "Rachel",
       "last_name": "Howell",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg",
-      "password":"password" 
-
+      "password": "password"
+    },
+    {
+      "email": "samuelmorganvisual@gmail.com",
+      "first_name": "Samuel",
+      "last_name": "Morgan-Tyghe",
+      "password": "gnjkngkdfn",
+      "id": 13
+    },
+    {
+      "email": "Samuel.Morgan13@bathspa.ac.uk",
+      "first_name": "Samuel",
+      "last_name": "Morgan-Tyghe",
+      "password": "hgfhfghfg",
+      "id": 14
+    },
+    {
+      "email": "automhgfhfgated@fringeartsbath.co.uk",
+      "first_name": "Samuel",
+      "last_name": "Morgan-Tyghe",
+      "password": "dsadsadsadsa",
+      "id": 15
+    },
+    {
+      "email": "chloe.tyghe12@bathspa.ac.uk",
+      "first_name": "Chloe",
+      "last_name": "Tyghe",
+      "password": "dsadsad",
+      "id": 16
+    },
+    {
+      "email": "chloe.tyghe1sds2@bathspa.ac.uk",
+      "first_name": "Chloe",
+      "last_name": "Tyghe",
+      "password": "dsadsadsa",
+      "id": 17
     }
-    
   ]
 }

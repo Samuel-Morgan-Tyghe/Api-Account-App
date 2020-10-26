@@ -1,10 +1,14 @@
 import React from 'react';
 
 import axios from 'axios';
-import {showLogin,showCreateAccount} from './showhideContent.js'
+import { Redirect } from 'react-router-dom'
+import {useForm} from 'react-hook-form';
+import isEmail from "validator/lib/isEmail";
 
 
 class EmailValidate extends React.Component {
+  
+
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -13,7 +17,7 @@ class EmailValidate extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
+  
 
 
   handleChange(event) {
@@ -23,7 +27,6 @@ class EmailValidate extends React.Component {
   handleSubmit(event) {
 
     let email = this.state.value;
-    console.log(email)
   
 
     axios({
@@ -33,12 +36,12 @@ class EmailValidate extends React.Component {
     })
     .then((response) => {
       if(response.data.length === 0){
-        showCreateAccount()
-        document.getElementById('emailCA').value = email;
+
+        this.setState({ redirect: "/CreateAccountForm" });
 
       }else{
-        showLogin()
-        document.getElementById('emailL').value = email;
+        this.setState({ redirect: "/LoginForm" });
+
       }
 
     }, (error) => {
@@ -52,11 +55,36 @@ class EmailValidate extends React.Component {
     
   }
 
+  
+
   render() {
+
+    const { register, handleSubmit, errors, formState } = useForm({
+      mode: "onBlur",
+    });
+
+    function onSubmit(data) {
+      console.log(data);
+    }
+
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
+
+
+
     return (
       <form name="Email Validator" id='emailValidate'  method="post"  className='wrapper' onSubmit={this.handleSubmit}>
           <label htmlFor="email" >Enter your email:</label><br></br>
-          <input type="email"  id="email"  placeholder="Enter Email" name="email" value={this.state.value} onChange={this.handleChange} required></input>
+
+          <input type="email" 
+          ref={register({
+          required: true,
+          validate: (input) => isEmail(input), // returns true if valid
+        })}
+          id="email"  placeholder="Enter Email" name="email" value={this.state.value} onChange={this.handleChange} style={{ ...styles.input, borderColor: errors.email && "red" }}
+          required></input>
+
           <br></br>
 
         <div className='outerButtons'>
@@ -64,10 +92,6 @@ class EmailValidate extends React.Component {
         </div>
         
       </form>
-
-       
-
-
     );
   }
 }
