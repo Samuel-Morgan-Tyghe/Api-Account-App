@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
-import {Link} from 'react-router-dom';
 
 
 class Homepage extends React.Component {
@@ -9,12 +7,13 @@ class Homepage extends React.Component {
         super(props);
         this.state = {
             apiList: [],
-            id: 0,
-            email: '',
-            first_name: '',
-            last_name: '',
-            avatar: '',
-            password: ''
+            id: [],
+            email: [],
+            first_name: [],
+            last_name: [],
+            avatar: [],
+            password: [],
+            key:''
 
 
             
@@ -24,20 +23,34 @@ class Homepage extends React.Component {
       }
 
 
-      deleteUser(event){
+      deleteUser = (event) => {
+       
+        axios({
+            method: 'DELETE',
+            url: 'http://localhost:3000/AAAUsers/'+ event.target.value,
+          })
+
+          this.componentDidMount()
+
+      }
 
 
-        console.log(
-                
-            this.state.id+
-            this.state.email+
-            this.state.first_name+
-            this.state.avatar+
-            this.state.passwor
-        )
-          console.log(event.target.key)
+      addUser = (event) => {
+       
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/AAAUsers',
+            data: {
+                "email": "Email@email.com",
+                "first_name": "First_Name",
+                "last_name": "Last_Name",
+                "password": "Password",
+                "avatar": "https://randomuser.me/api/portraits/lego/"+ Math.floor(Math.random() * 10)+ ".jpg"
+            }
+          })
 
-        // event.target.apiList = ''
+          this.componentDidMount()
+
       }
       
       handleChange (event)  {
@@ -51,14 +64,10 @@ console.log(target +'-----'+ value +'-----'+ name)
         this.setState({
           [name]: value
         });
-
-        // const res = await axios.put('http://localhost:3000/AAAUsers', { apiList: value });
-        // res.data.json; 
         
     }
 
       componentDidMount = () => {
-        
 
         axios({
             method: 'get',
@@ -67,41 +76,11 @@ console.log(target +'-----'+ value +'-----'+ name)
 
           .then((response) => {
               let i
-            for(i = 0; i < response.data.length; i++){
-
-                this.setState({ 
-
-                   
+                this.setState({      
                     apiList: response.data,
-                    id:  response.data.[i].id,
-                    email:  response.data.[i].email,
-                    first_name:  response.data.[i].first_name,
-                    last_name:  response.data.[i].last_name,
-                    avatar:  response.data.[i].avatar,
-                    password:  response.data.[i].password
-
-                    
-                
                 })
-
-                console.log(response.data.[i].id)
-
-            }
-
-
-                // console.log(response.data)
-                console.log(response.data.length)
-                // console.log(this.state.id)
-                // console.log(this.state.email )
-                // console.log(this.state.first_name )
-                // console.log(this.state.avatar )
-                // console.log(this.state.passwor)
-            
-
-
             }, (error) => {
                 alert("Error: " + error)
-
                 console.log(error);
               });
       }
@@ -109,36 +88,48 @@ console.log(target +'-----'+ value +'-----'+ name)
       
 
       render() {
+
+        // {this.state.apiList.map((apiList, key) => 
+        
+        // this.state.email = apiList.email 
+        
+        //     )}
         return (
             
             <div className='outerApi'>
                 <div className={'apiList'} name="apiList" value={this.state.apiList} onChange={this.handleChange}>
 
+                <button onClick={this.addUser}   >Add User</button>
 
-                    {this.state.apiList.map((apiList) => 
+
+                    {this.state.apiList.map((content) => 
 
                     
                     <div className={'apiListInner'}>
 
-                    <div className={'flexRow'}><p  className={'flexcollumn'}>Email: </p>     
-                    <div className={'editableSize'}         onBlur={(e)=>{this.state.apiList.email = e.currentTarget.textContent}}  suppressContentEditableWarning contentEditable="true" 
-                    key={this.state.apiList} value={this.state.apiList.email} onChange={this.handleChange}>{apiList.email}
+                    <div className={'flexRow'}><p  className={'flexcollumn'}>Email:</p>     
+                    <div className={'editableSize'}        
+                     onBlur={(e)=>{content.email = e.currentTarget.textContent}}  
+                    suppressContentEditableWarning contentEditable="true" 
+                    key={content.id} value={content.email} onLoad={this.handleChange} onChange={this.handleChange}>{content.email}
                     </div></div>
 
-
                     <div className={'flexRow'}><p  className={'flexcollumn'}>First Name: </p>
-                    <div className={'editableSize'} suppressContentEditableWarning contentEditable="true" key={this.state.apiList.id}>{apiList.first_name}</div></div>
+                    <div className={'editableSize'} suppressContentEditableWarning contentEditable="true" 
+                    >{content.first_name}</div></div>
 
                     <div className={'flexRow'}><p  className={'flexcollumn'}>Last Name: </p> 
-                    <div className={'editableSize'} suppressContentEditableWarning contentEditable="true" key={this.state.apiList.id}>{apiList.last_name} </div></div>
+                    <div className={'editableSize'} suppressContentEditableWarning contentEditable="true" 
+                    >{content.last_name} </div></div>
 
                     <div className={'flexRow'}><p  className={'flexcollumn'}>Password: </p>  
-                    <div className={'editableSize'} suppressContentEditableWarning contentEditable="true" key={this.state.apiList.id}>{apiList.password}  </div></div>
-                    <img key={apiList} src={apiList.avatar} width='128px' height='128px'></img>
+                    <div className={'editableSize'} suppressContentEditableWarning contentEditable="true" 
+                    >{content.password}  </div></div>
+                    <img  src={content.avatar} width='128px' height='128px' alt='Profile Pictures'></img>
 
                     <br></br>
 
-                        <button onClick={this.deleteUser} key={this.state.apiList.id}></button>
+                        <button onClick={this.deleteUser} value={content.id} >Delete User : {content.id}</button>
                     </div>
                     )}
                 

@@ -81,7 +81,7 @@ class CreateAccountForm extends React.Component {
     let lname = this.state.lname
     let pwd = this.state.password
     let img = this.state.img
-    if (img === ''){ img = 'src\Assets\iconfinder_unknown_403017.png'}
+    if (img === ''){ img = "https://randomuser.me/api/portraits/lego/"+ Math.floor(Math.random() * 10)+ ".jpg"}
 
     axios({
       method: 'get',
@@ -104,7 +104,7 @@ class CreateAccountForm extends React.Component {
         })
 
 
-      this.setState({ redirect: "/tohomepage" });
+      this.setState({ redirect: "/homepage" });
       }else{
 
 
