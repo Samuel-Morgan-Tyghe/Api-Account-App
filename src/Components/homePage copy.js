@@ -25,16 +25,6 @@ class Homepage extends React.Component {
 
 
       deleteUser(event){
-
-
-        console.log(
-                
-            this.state.id+
-            this.state.email+
-            this.state.first_name+
-            this.state.avatar+
-            this.state.passwor
-        )
           console.log(event.target.key)
 
         // event.target.apiList = ''
@@ -66,37 +56,17 @@ console.log(target +'-----'+ value +'-----'+ name)
           })
 
           .then((response) => {
-              let i
-            for(i = 0; i < response.data.length; i++){
-
                 this.setState({ 
-
-                   
-                    apiList: response.data,
-                    id:  response.data.[i].id,
-                    email:  response.data.[i].email,
-                    first_name:  response.data.[i].first_name,
-                    last_name:  response.data.[i].last_name,
-                    avatar:  response.data.[i].avatar,
-                    password:  response.data.[i].password
-
                     
+                    apiList: response.data
+                
+                
                 
                 })
 
-                console.log(response.data.[i].id)
-
-            }
-
 
                 // console.log(response.data)
-                console.log(response.data.length)
-                // console.log(this.state.id)
-                // console.log(this.state.email )
-                // console.log(this.state.first_name )
-                // console.log(this.state.avatar )
-                // console.log(this.state.passwor)
-            
+                // console.log(this.state.apiList[0])
 
 
             }, (error) => {
@@ -112,7 +82,7 @@ console.log(target +'-----'+ value +'-----'+ name)
         return (
             
             <div className='outerApi'>
-                <div className={'apiList'} name="apiList" value={this.state.apiList} onChange={this.handleChange}>
+                <div className={'apiList'} name="apiList" value={this.state.apiList} onLoad={this.componentDidMount} onChange={this.handleChange}>
 
 
                     {this.state.apiList.map((apiList) => 
