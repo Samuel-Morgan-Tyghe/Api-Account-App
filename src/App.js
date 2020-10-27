@@ -15,7 +15,7 @@ function App() {
     <Router >
       <Nav />
       <Switch></Switch>
-    <div className="App">
+    <div className="App loader-container">
         
          
 
