@@ -132,22 +132,22 @@ class CreateAccountForm extends React.Component {
       <form  className='wrapper' name="Create Account" method="post"  onSubmit={this.handleSubmit}>
 
 
-          {/* <label htmlFor="email" >Enter your email:</label><br></br> */}
+          <label htmlFor="email" >Enter your email:</label><br></br>
           <input type="email"    placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}  className={this.state.emailClass}   required></input><br></br>
           <span className={ this.state.emailInUse}>This Email Is already Registered</span>
 
 
-          {/* <label htmlFor="fname" >First name:</label><br></br> */}
+          <label htmlFor="fname" >First name:</label><br></br>
           <input className={'roundedInput'} type="text"  placeholder="Enter First Name" name="fname" value={this.state.fname} onChange={this.handleChange} required></input><br></br>
 
-          {/* <label htmlFor="lname">Last name:</label><br></br> */}
+          <label htmlFor="lname">Last name:</label><br></br>
           <input className={'roundedInput'}  type="text"  placeholder="Enter Last Name" name="lname" value={this.state.lname} onChange={this.handleChange} required></input><br></br>
 
-          {/* <label htmlFor="pwd">Password:</label><br></br> */}
+          <label htmlFor="pwd">Password:</label><br></br>
           <input className={'roundedInput'}  type="password"  placeholder="Enter Password" name="password" autoComplete="off" value={this.state.password} onChange={this.handleChange} required></input><br></br>
 
           <label  className={'chooseAvatarlabel'} htmlFor="img">Choose Avatar:
-          <input  className={'uploadAvatar'} placeholder='chooseAvatar'  type="file" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
+          <input  className={'uploadAvatar'} placeholder='chooseAvatar' id="img" type="file" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
           </label>
 
           <input className={'radioTerms'} type="checkbox" required></input>

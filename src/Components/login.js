@@ -112,12 +112,12 @@ class LoginForm extends React.Component {
     return (
       <form className='wrapper' name="loginForm" method="post"   onSubmit={this.handleSubmit}>
 
-      {/* <label htmlFor="email"  >Enter your email:</label><br></br> */}
+      <label htmlFor="email"  >Enter your email:</label><br></br>
           <input type="email"  className={this.state.emailClass}  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}   required></input><br></br>
           <span className={this.state.emailNotInUse}>This Email Is Not Registered</span>
           
 
-          {/* <label htmlFor="pwd">Password:</label><br></br> */}
+          <label htmlFor="pwd">Password:</label><br></br>
           <input type="password" className={'roundedInput'}  placeholder="Enter Password"  name="password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required></input><br></br>
           <span className={this.state.wrongPassword}>This Password Is Not Correct</span>
 
