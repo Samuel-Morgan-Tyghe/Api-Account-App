@@ -129,39 +129,33 @@ class CreateAccountForm extends React.Component {
       return <Redirect to={this.state.redirect} />
     }
     return (
-      <form name="Create Account"  id='createAccountVisibility' method="post"  className='wrapper' onSubmit={this.handleSubmit}>
+      <form  className='wrapper' name="Create Account" method="post"  onSubmit={this.handleSubmit}>
 
 
           {/* <label htmlFor="email" >Enter your email:</label><br></br> */}
-          <input type="email"  id="emailCA"  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}  className={this.state.emailClass}   required></input><br></br>
+          <input type="email"    placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}  className={this.state.emailClass}   required></input><br></br>
           <span className={ this.state.emailInUse}>This Email Is already Registered</span>
 
 
           {/* <label htmlFor="fname" >First name:</label><br></br> */}
-          <input className={'roundedInput'} type="text" id="fname" placeholder="Enter First Name" name="fname" value={this.state.fname} onChange={this.handleChange} required></input><br></br>
+          <input className={'roundedInput'} type="text"  placeholder="Enter First Name" name="fname" value={this.state.fname} onChange={this.handleChange} required></input><br></br>
 
           {/* <label htmlFor="lname">Last name:</label><br></br> */}
-          <input className={'roundedInput'}  type="text" id="lname" placeholder="Enter Last Name" name="lname" value={this.state.lname} onChange={this.handleChange} required></input><br></br>
+          <input className={'roundedInput'}  type="text"  placeholder="Enter Last Name" name="lname" value={this.state.lname} onChange={this.handleChange} required></input><br></br>
 
           {/* <label htmlFor="pwd">Password:</label><br></br> */}
-          <input className={'roundedInput'}  type="password"  id="passwordCA"  placeholder="Enter Password" name="password" autoComplete="off" value={this.state.password} onChange={this.handleChange} required></input><br></br>
+          <input className={'roundedInput'}  type="password"  placeholder="Enter Password" name="password" autoComplete="off" value={this.state.password} onChange={this.handleChange} required></input><br></br>
 
-          <div className={'chooseAvatar'}>
-          <label   className={'chooseAvatarlabel'} htmlFor="img">Choose Avatar:
-          <input  className={'uploadAvatar'} placeholder='chooseAvatar'  type="file" id="img" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
+          <label  className={'chooseAvatarlabel'} htmlFor="img">Choose Avatar:
+          <input  className={'uploadAvatar'} placeholder='chooseAvatar'  type="file" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
           </label>
-          </div>
 
-          <div className={'termsWrapper'}>
-          <input className={'radioTerms'} type="checkbox" id="tnd" name="tnd" value="tnd" required></input>
+          <input className={'radioTerms'} type="checkbox" required></input>
           <label className={'textTerms'} htmlFor="vehicle1"><p>Tick to accept the <a href="https://en.wikipedia.org/wiki/Terms_of_service">Terms And Conditions</a></p> </label><br></br>
-          </div>
 
-          <div className='outerButtons'>
-          <Link  to="/LoginForm" id="loginRedirect" >LoginForm</Link>
+          <Link  to="/LoginForm">LoginForm</Link>
           <input type="submit" value="Submit" />
           <input type="reset"></input>
-          </div>
 
       </form>
 

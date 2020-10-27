@@ -76,16 +76,14 @@ class EmailValidate extends React.Component {
 
 
     return (
-      <form name="Email Validator" id='emailValidate'  method="post"  className='wrapper' onSubmit={this.handleSubmit}>
+      <form  className='wrapper' name="Email Validator" method="post"  onSubmit={this.handleSubmit}>
           {/* <label htmlFor="email" >Enter your email:</label><br></br> */}
 
           <input type="email" id="email"  placeholder="Enter Email" name="email" value={this.state.value} onChange={this.handleChange} className={this.state.emailClass }  required></input>
 
           <br></br>
 
-        <div className='outerButtons'>
         <input type="submit" value="Submit" />
-        </div>
         
       </form>
     );

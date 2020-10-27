@@ -8,42 +8,31 @@ import EmailValidate from './Components/emailValidate.js';
 import CreateAccountForm from './Components/createAccount.js';
 import LoginForm from './Components/login.js';
 import HomePage from './Components/homePage.js';
-import Background from './Components/background.js'
 
 function App() {
   return (
     <Router >
-      {/* <Nav /> */}
+      <Nav />
       <Switch></Switch>
-    <div className="App loader-container">
+    <div className="App">
         
          
-
+ 
           <Route path="/" exact >
-        <div className="outer">
-        <div className="inner">
+
             <EmailValidate/>
-        </div>
-        </div>
           </Route>
           
 
           <Route path="/LoginForm" >
-          <div className="outer">
-        <div className="inner">
+  
             <LoginForm/>
-            </div>
-        </div>
           </Route>
 
           <Route path="/CreateAccountForm"  >
-          <div className="outer">
-        <div className="inner">
+  
             <CreateAccountForm/>
-            </div>
-        </div>
           </Route>
-         
           <Route path="/HomePage" >
             <HomePage/>
           </Route>
@@ -51,7 +40,6 @@ function App() {
         
     </div>
     <Switch />
-    {/* <Background /> */}
     </Router>
 
   );

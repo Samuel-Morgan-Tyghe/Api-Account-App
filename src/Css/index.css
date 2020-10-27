@@ -8,25 +8,20 @@
 .flagValidator {
   border: dashed red; }
 
-.chooseAvatar {
-  display: flex;
-    display-flex-direction: column;
-    display-align-items: center;
-    display-width: 100%;
-    display-height: 100%; }
-  .chooseAvatar .chooseAvatarlabel {
-    cursor: pointer;
-    border-radius: 50px;
-    font-size: large;
-    background-color: white;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-    display: flexbox;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 1px 3px 0 #012; }
+.chooseAvatarlabel {
+  cursor: pointer;
+  border-radius: 50px;
+  font-size: large;
+  background-color: white;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  display: flexbox;
+  flex-direction: column;
+  align-items: center;
+  padding: auto;
+  box-shadow: 1px 3px 0 #012; }
 
 .chooseAvatarlabel:hover {
   border-color: #262727; }
@@ -41,15 +36,6 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  text-align: center;
-  justify-content: center;
-  align-content: center;
-  justify-self: center;
-  align-self: center;
-  border-radius: 50px;
-  height: 40px;
-  font-size: large;
-  width: 66%;
   margin: auto; }
 
 .outerApi {
@@ -78,34 +64,27 @@
 .editableSize {
   border: 1px solid #1392e8;
   margin: 5px;
-  align-items: baseline;
-  width: 100%;
-  height: 100%;
-  max-width: 300px; }
+  align-items: baseline; }
 
-.wrapper {
+.flexRow {
+  width: 400px;
   display: flex;
-  text-align: center;
+  flex-direction: row; }
+
+.flexcollumn {
+  display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  justify-content: center;
-  align-content: center;
-  align-self: center;
-  justify-self: center; }
+  align-items: baseline;
+  border: 1px solid salmon;
+  margin: auto; }
 
-.loginTop {
-  padding-top: 20%;
-  width: 100%;
-  height: 100%; }
+.emailNotInUse {
+  display: none; }
 
-.loginMid {
-  width: 100%;
-  height: 100%; }
-
-.loginBottom {
-  width: 100%;
-  height: 33%; }
+.flagEmailInUse {
+  display: flex; }
 
 .wrongPassword {
   display: none; }
@@ -113,84 +92,16 @@
 .flagWrongPassword {
   display: flex; }
 
-.App {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  text-align: center;
-  font-family: 'jost';
-  overflow: "auto"; }
-
 .nav-links {
   justify-content: space-around;
   list-style: none; }
 
-* {
-  font-size: large; }
-
-@keyframes fadeInOpacity {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.backgroundImage {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -10; }
-
-.backgroundImage {
-  object-fit: cover;
-  z-index: -10; }
-
-.outer {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center; }
-
-.inner {
-  width: 66%;
-  height: 66%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: 50px;
-  background-color: aliceblue;
-  box-shadow: 10px 10px 5px grey; }
+.App * {
+  font-family: 'jost';
+  font-size: 16px; }
 
 .wrapper {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-content: center;
-  align-self: center;
-  justify-self: center; }
-
-.outerButtons {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-around;
-  align-content: space-around;
-  margin: auto; }
-
-.flagValidator {
-  border: dashed red; }
-
-.emailNotInUse {
-  display: none; }
-
-.flagEmailInUse {
-  display: flex; }
+  display: flexbox; }
 
 .loadingIcon {
   position: fixed;
@@ -202,11 +113,7 @@
 .hideIcon {
   display: none; }
 
-.uploadAvatar {
-  display: none; }
-
 input[type=text], [type=email], [type=password] {
-  text-align: center;
   width: 66%;
   height: 40px;
   justify-content: center;
@@ -214,7 +121,6 @@ input[type=text], [type=email], [type=password] {
   justify-self: center;
   align-self: center;
   border-radius: 50px;
-  font-size: large;
   border: 3px solid #ccc;
   -webkit-transition: 0.5s;
   transition: 0.5s;

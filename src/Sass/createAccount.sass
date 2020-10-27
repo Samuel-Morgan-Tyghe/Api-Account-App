@@ -1,9 +1,4 @@
 
-    
-    
-    
-    
-    
 .emailInUse
     display: none
 
@@ -17,32 +12,35 @@
 
 
 
-.chooseAvatar
-  display: flex
+
+input [ type = "file"] 
+    display: flex
     flex-direction: column
     align-items: center
     width: 100%
     height: 100%
   
+.uploadAvatar
+  display: none
 
+.chooseAvatarlabel 
+ 
+  cursor: pointer
+  border-radius: 50px
+  font-size: large
+  background-color: white
 
-  .chooseAvatarlabel 
-    cursor: pointer
-    border-radius: 50px
-    font-size: large
-    background-color: white
-  
-    border: 3px solid #ccc
-    -webkit-transition: 0.5s
-    transition: 0.5s
-    outline: none
+  border: 3px solid #ccc
+  -webkit-transition: 0.5s
+  transition: 0.5s
+  outline: none
+  display: flexbox
+  flex-direction: column
+  align-items: center
 
-    display: flexbox
-    flex-direction: column
-    align-items: center
-  
-    padding:auto
-    box-shadow: 1px 3px 0 #012
+  padding:auto
+  box-shadow: 1px 3px 0 #012
+  display: none
 
   
 .chooseAvatarlabel:hover  
@@ -64,24 +62,25 @@
   justify-content: center
   width: 100%
   height: 100%
-  margin:auto
-
-
-
-
-
-   .emailClass
-  text-align: center
-
-  justify-content: center
-  align-content: center
-  justify-self: center
-  align-self: center
-  border-radius: 50px
-  height: 40px
-  font-size: large
-  width: 66%
   margin: auto
+
+
+
+  
+
+
+// .emailClass
+//   text-align: center
+
+//   justify-content: center
+//   align-content: center
+//   justify-self: center
+//   align-self: center
+//   border-radius: 50px
+//   height: 40px
+//   font-size: large
+//   width: 66%
+//   margin: auto
 
     // .roundedInput
 //   text-align: center
