@@ -111,21 +111,24 @@ class LoginForm extends React.Component {
     return (
       <form name="loginForm"  id='loginVisibility' method="post"  className='wrapper' onSubmit={this.handleSubmit}>
 
+          <div className={'loginTop'}>
       <label htmlFor="email"  >Enter your email:</label><br></br>
           <input type="email"  className={this.state.emailClass}  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}   required></input><br></br>
           <span className={this.state.emailNotInUse}>This Email Is Not Registered</span>
+          </div>
 
-          <div >
+          <div className={'loginMid'}>
           <label htmlFor="pwd">Password:</label><br></br>
-          <input type="password"  placeholder="Enter Password" id="passwordL" name="password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required></input><br></br>
+          <input type="password" className={'roundedInput'}  placeholder="Enter Password" id="passwordL" name="password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required></input><br></br>
           <span className={this.state.wrongPassword}>This Password Is Not Correct</span>
 
           </div>
 
-
+        <div className={'loginBottom'}>
         <div className='outerButtons'>
         <Link id="CreateAccountRedirect" to="/CreateAccountForm">CreateAccountForm</Link>
         <input type="submit" value="Submit" />
+        </div>
         </div>
 
 

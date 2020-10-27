@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import loadingIcon from '../Assets/Wedges-3s-200px.gif'
+import loadingIcon from '../Assets/yy3.gif'
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -123,8 +123,9 @@ console.log(target +'-----'+ value +'-----'+ name)
                 <div className={'apiList'} name="apiList" >
 
                     
-
                 <button onClick={this.addUser}   >Add User</button>
+
+
                 <img className={this.state.loadingIcon} src={loadingIcon} width='300px' height='300px' alt='Profile Pictures'></img>
 
 
@@ -152,12 +153,13 @@ console.log(target +'-----'+ value +'-----'+ name)
                     <div className={'editableSize'} suppressContentEditableWarning contentEditable="true" 
                     >{content.password}  </div></div>
                     
-                    <div className={}>
+
+                    <div >
                     <img  src={content.avatar} width='128px' height='128px' alt='Profile Pictures'></img>
-                    <br></br>
-                    <button onClick={this.deleteUser} value={content.id} >Delete User : {content.id}</button>
+                    <button   onClick={this.deleteUser} value={content.id} >Delete User : {content.id}</button>
                     </div>
-                        
+
+
                     </div>
                     )}
                 

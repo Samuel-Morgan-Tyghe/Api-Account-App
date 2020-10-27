@@ -137,20 +137,23 @@ class CreateAccountForm extends React.Component {
 
 
           <label htmlFor="fname" >First name:</label><br></br>
-          <input type="text" id="fname" placeholder="Enter First Name" name="fname" value={this.state.fname} onChange={this.handleChange} required></input><br></br>
+          <input className={'roundedInput'} type="text" id="fname" placeholder="Enter First Name" name="fname" value={this.state.fname} onChange={this.handleChange} required></input><br></br>
 
           <label htmlFor="lname">Last name:</label><br></br>
-          <input type="text" id="lname" placeholder="Enter Last Name" name="lname" value={this.state.lname} onChange={this.handleChange} required></input><br></br>
+          <input className={'roundedInput'}  type="text" id="lname" placeholder="Enter Last Name" name="lname" value={this.state.lname} onChange={this.handleChange} required></input><br></br>
 
           <label htmlFor="pwd">Password:</label><br></br>
-          <input type="password"  id="passwordCA"  placeholder="Enter Password" name="password" autoComplete="off" value={this.state.password} onChange={this.handleChange} required></input><br></br>
+          <input className={'roundedInput'}  type="password"  id="passwordCA"  placeholder="Enter Password" name="password" autoComplete="off" value={this.state.password} onChange={this.handleChange} required></input><br></br>
 
+          <div className={'chooseAvatar'}>
           <label htmlFor="img">Choose Avatar:</label><br></br>
-          <input type="file" id="img" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
+          <input  className={'uploadAvatar'}  type="file" id="img" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
+          </div>
 
-          <input type="checkbox" id="tnd" name="tnd" value="tnd" required></input><br></br>
-          <label htmlFor="vehicle1"><p>Tick to accept the <a href="https://en.wikipedia.org/wiki/Terms_of_service">Terms And Conditions</a></p> </label><br></br>
-
+          <div className={'termsWrapper'}>
+          <input className={'radioTerms'} type="checkbox" id="tnd" name="tnd" value="tnd" required></input>
+          <label className={'textTerms'} htmlFor="vehicle1"><p>Tick to accept the <a href="https://en.wikipedia.org/wiki/Terms_of_service">Terms And Conditions</a></p> </label><br></br>
+          </div>
 
           <div className='outerButtons'>
           <Link  to="/LoginForm" id="loginRedirect" >LoginForm</Link>

@@ -10,7 +10,7 @@ class EmailValidate extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: '', emailClass: 'emailClass' };
+    this.state = {value: '', emailClass: 'emailClass ' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -79,7 +79,7 @@ class EmailValidate extends React.Component {
       <form name="Email Validator" id='emailValidate'  method="post"  className='wrapper' onSubmit={this.handleSubmit}>
           <label htmlFor="email" >Enter your email:</label><br></br>
 
-          <input type="email" id="email"  placeholder="Enter Email" name="email" value={this.state.value} onChange={this.handleChange} className={this.state.emailClass}  required></input>
+          <input type="email" id="email"  placeholder="Enter Email" name="email" value={this.state.value} onChange={this.handleChange} className={this.state.emailClass }  required></input>
 
           <br></br>
 

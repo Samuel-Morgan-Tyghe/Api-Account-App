@@ -13,7 +13,7 @@ import HomePage from './Components/homePage.js';
 function App() {
   return (
     <Router >
-      <Nav />
+      {/* <Nav /> */}
       <Switch></Switch>
     <div className="App loader-container">
         
