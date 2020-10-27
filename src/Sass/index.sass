@@ -1,0 +1,271 @@
+@import url(https://indestructibletype.com/fonts/Jost.css)
+@import ./createAccount
+@import ./emailValidator
+@import ./homepage
+@import ./login
+
+//  Structure- 
+// -top level (nav/app)
+// -emailValidator
+// -Login
+// -CreateAccount
+// -Homepage
+// -Functional css 
+
+.App 
+  width: 100%
+  height: 100%
+  margin: auto
+  text-align: center
+  font-family: 'jost'
+  overflow: "auto"
+  
+
+
+.nav-links 
+  justify-content: space-around
+  list-style: none
+
+
+
+//  *
+
+//   border: 1px solid green
+
+//  
+
+* 
+
+  font-size: large
+
+    // opacity: 1
+    // animation-name: fadeInOpacity
+    // animation-iteration-count: 1
+    // animation-timing-function: ease
+    // animation-duration: 2s 
+  
+  
+  @keyframes fadeInOpacity 
+    0% 
+      opacity: 0
+    
+    100% 
+      opacity: 1
+    
+  
+
+
+.backgroundImage
+  position: fixed
+  width: 100%
+  height: 100%
+  z-index: -10
+
+
+.backgroundImage
+  object-fit: cover
+  z-index: -10
+
+
+
+
+
+
+
+
+
+
+
+.outer
+  width: 100%
+  height: 100%
+  text-align: center
+  display: flex
+  position: fixed
+  flex-direction: column
+  justify-content: center
+  align-content: center
+//    background: rgb(238,174,202)
+//   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)
+
+
+  
+
+
+.inner
+    width: 66%
+    height: 66%
+    margin: auto
+    display: flex
+    flex-direction: column
+    border-radius: 50px
+    background-color: aliceblue
+    box-shadow: 10px 10px 5px grey
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+.wrapper  
+  display: flex
+  text-align: center
+  flex-direction: column
+  width: 100% 
+  height: 100%
+  justify-content: center
+  align-content: center
+  align-self: center
+  justify-self: center
+
+
+
+
+
+.outerButtons 
+  display: flex
+ 
+  width: 100%
+  flex-direction: row
+  justify-content: space-around
+  align-content: space-around
+  margin: auto
+
+
+
+
+
+
+.flagValidator
+
+  border: dashed red
+
+
+
+
+
+
+.emailNotInUse
+  display: none
+
+
+.flagEmailInUse
+  display: flex
+
+
+
+
+
+
+.loadingIcon
+
+  position: fixed
+  display: block
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+ 
+
+
+
+
+
+.hideIcon
+
+  display: none
+
+
+.uploadAvatar
+
+  display: none
+
+
+//  .emailClass
+//   text-align: center
+
+//   justify-content: center
+//   align-content: center
+//   justify-self: center
+//   align-self: center
+//   border-radius: 50px
+//   height: 40px
+//   font-size: large
+//   width: 66%
+//   margin: auto
+
+
+
+
+// .roundedInput
+//   text-align: center
+//   width: 66%
+//   height: 40px
+//   justify-content: center
+//   align-content: center
+//   justify-self: center
+//   align-self: center
+//   border-radius: 50px
+//   font-size: large
+
+
+ 
+
+
+
+input[type=text ],[type=email ],[type=password] 
+
+  
+  text-align: center
+  width: 66%
+  height: 40px
+  justify-content: center
+  align-content: center
+  justify-self: center
+  align-self: center
+  border-radius: 50px
+  font-size: large
+
+  border: 3px solid #ccc
+  -webkit-transition: 0.5s
+  transition: 0.5s
+  outline: none
+
+
+// input[type=text],[type=email ],[type=password]:focus 
+//   border: 3px solid #555
+ 
+
+
+
+.flexRow
+  width: 400px
+  display: flex
+  flex-direction: row
+
+
+
+
+.flexcollumn
+  display: flex
+  flex-direction: column
+  width: 100%
+  height: 100%
+  align-items: baseline
+  border: 1px solid salmon 
+
+  margin: auto
+
+
+
+
+
+
+

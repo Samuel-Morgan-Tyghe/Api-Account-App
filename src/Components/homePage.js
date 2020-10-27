@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import loadingIcon from '../Assets/yy3.gif'
+import {Link} from 'react-router-dom';
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -165,7 +166,7 @@ console.log(target +'-----'+ value +'-----'+ name)
                 
                 </div>
 
-              
+                <Link id="signOut" to="/">Sign Out</Link>
     
 
 

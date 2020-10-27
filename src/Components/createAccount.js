@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
-
+import EmailValidate from './emailValidate.js';
 
 
 
@@ -13,7 +13,8 @@ class CreateAccountForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '' ,  //PASS EMAIL HERE FROM emailVal
+
+      email: EmailValidate.value,
       fname: '',
       lname: '',
       password: '',
@@ -131,23 +132,24 @@ class CreateAccountForm extends React.Component {
       <form name="Create Account"  id='createAccountVisibility' method="post"  className='wrapper' onSubmit={this.handleSubmit}>
 
 
-<label htmlFor="email" >Enter your email:</label><br></br>
+          {/* <label htmlFor="email" >Enter your email:</label><br></br> */}
           <input type="email"  id="emailCA"  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}  className={this.state.emailClass}   required></input><br></br>
           <span className={ this.state.emailInUse}>This Email Is already Registered</span>
 
 
-          <label htmlFor="fname" >First name:</label><br></br>
+          {/* <label htmlFor="fname" >First name:</label><br></br> */}
           <input className={'roundedInput'} type="text" id="fname" placeholder="Enter First Name" name="fname" value={this.state.fname} onChange={this.handleChange} required></input><br></br>
 
-          <label htmlFor="lname">Last name:</label><br></br>
+          {/* <label htmlFor="lname">Last name:</label><br></br> */}
           <input className={'roundedInput'}  type="text" id="lname" placeholder="Enter Last Name" name="lname" value={this.state.lname} onChange={this.handleChange} required></input><br></br>
 
-          <label htmlFor="pwd">Password:</label><br></br>
+          {/* <label htmlFor="pwd">Password:</label><br></br> */}
           <input className={'roundedInput'}  type="password"  id="passwordCA"  placeholder="Enter Password" name="password" autoComplete="off" value={this.state.password} onChange={this.handleChange} required></input><br></br>
 
           <div className={'chooseAvatar'}>
-          <label htmlFor="img">Choose Avatar:</label><br></br>
-          <input  className={'uploadAvatar'}  type="file" id="img" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
+          <label   className={'chooseAvatarlabel'} htmlFor="img">Choose Avatar:
+          <input  className={'uploadAvatar'} placeholder='chooseAvatar'  type="file" id="img" name="img" accept="image/*"  value={this.state.img} onChange={this.handleChange}  ></input><br></br>
+          </label>
           </div>
 
           <div className={'termsWrapper'}>

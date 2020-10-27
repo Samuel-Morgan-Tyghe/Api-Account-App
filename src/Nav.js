@@ -7,7 +7,7 @@ function Nav() {
   return (
     
 <ul className='nav-links '>
-<Link  to="/EmailValidate">
+<Link  to="/">
 <li>EmailValidate</li>
 </Link>
 <Link to="/LoginForm">

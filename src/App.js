@@ -8,7 +8,7 @@ import EmailValidate from './Components/emailValidate.js';
 import CreateAccountForm from './Components/createAccount.js';
 import LoginForm from './Components/login.js';
 import HomePage from './Components/homePage.js';
-
+import Background from './Components/background.js'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         
          
 
-          <Route path="/EmailValidate" >
+          <Route path="/" exact >
         <div className="outer">
         <div className="inner">
             <EmailValidate/>
@@ -51,6 +51,7 @@ function App() {
         
     </div>
     <Switch />
+    {/* <Background /> */}
     </Router>
 
   );

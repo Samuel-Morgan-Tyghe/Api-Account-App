@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 import {Link} from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
+import EmailValidate from './emailValidate.js';
 
 
 
@@ -15,7 +16,7 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '', //PASS EMAIL HERE FROM emailVal
+      email: EmailValidate.value,
       password: '',
       emailClass: 'emailClass',
       emailNotInUse: 'emailNotInUse',
@@ -112,13 +113,13 @@ class LoginForm extends React.Component {
       <form name="loginForm"  id='loginVisibility' method="post"  className='wrapper' onSubmit={this.handleSubmit}>
 
           <div className={'loginTop'}>
-      <label htmlFor="email"  >Enter your email:</label><br></br>
+      {/* <label htmlFor="email"  >Enter your email:</label><br></br> */}
           <input type="email"  className={this.state.emailClass}  placeholder="Enter Email" name="email" value={this.state.email} onChange={this.handleChange}   required></input><br></br>
           <span className={this.state.emailNotInUse}>This Email Is Not Registered</span>
           </div>
 
           <div className={'loginMid'}>
-          <label htmlFor="pwd">Password:</label><br></br>
+          {/* <label htmlFor="pwd">Password:</label><br></br> */}
           <input type="password" className={'roundedInput'}  placeholder="Enter Password" id="passwordL" name="password" autoComplete="on" value={this.state.password} onChange={this.handleChange} required></input><br></br>
           <span className={this.state.wrongPassword}>This Password Is Not Correct</span>
 
