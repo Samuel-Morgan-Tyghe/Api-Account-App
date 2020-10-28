@@ -1,0 +1,29 @@
+.wrapper .terms {
+  display: flex;
+  flex-direction: row;
+  justify-items: baseline;
+  allign-items: baseline; }
+
+.emailInUse {
+  display: none; }
+
+.flagEmailInUse {
+  display: flex; }
+
+.flagValidator {
+  border: dashed red; }
+
+.flagPassword {
+  display: flex; }
+
+.hidePasswordCharAlert {
+  display: none; }
+
+.hidePasswordNumAlert {
+  display: none; }
+
+input [type="file"] {
+  visibility: hidden; }
+
+.uploadAvatar {
+  display: none; }

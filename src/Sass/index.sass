@@ -4,17 +4,13 @@
 @import ./homepage
 @import ./login
 
-
-
-
 $ruler: 16px
 
-.nav-links 
+.nav-links
   justify-content: space-around
   list-style: none
 
-.app
-
+.App
 
 .App *
   font-family: 'jost'
@@ -22,19 +18,55 @@ $ruler: 16px
 
 // wrapped around login create emailV
 
-.wrapper 
-  display: flexbox
-  // text-align: center
-  // flex-direction: column
-  // width: 100% 
-  // height: 100%
-  // justify-content: center
-  // align-content: center
-  // align-self: center
-  // justify-self: center
+.wrapper
+  position: absolute
+  width: 400px
 
+  border: 2px solid #A288A6
+  padding: 3rem
+  border-radius: 10px
+  background-color: #F1E3E4
+  box-shadow: 3px 6px 4px #1C1D21
+  color: #1C1D21
+  top: 50%
+  left: 50%
+  -ms-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  @media only screen and (max-width: 768px) 
+    width: 80%
+    height: 100%
+    position: relative
+    -ms-transform: translate(0%, 0%)
+    transform: translate(0%, 0%)
+    top: 0%
+    left: 0%
+   
 
+  label
+    display: block
+    border-radius: 10px
+    padding: 1rem 0 .25rem 0
+    
 
+  input
+    display: block
+    width: 90%
+    border-radius: 5px
+    border: 2px solid #F1E3E4
+    padding: .5rem
+    transition: 0.5s background ease
+    &:hover
+      background-color: #F1E3E4
+      color: white
+  input[ type=submit ],[type=reset]
+    margin-top: 10px
+    border: 0
+    background-color: #A288A6
+    color: white
+    width: auto
+    transition: 0.5s background ease
+    &:hover
+      background-color: #BB9BB0
 
 .loadingIcon
   position: fixed
@@ -42,72 +74,7 @@ $ruler: 16px
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .hideIcon
 
   display: none
-
-
-
-
-input[type=text ],[type=email ],[type=password] 
-
-  
-  width: 66%
-  height: 40px
-  justify-content: center
-  align-content: center
-  justify-self: center
-  align-self: center
-  border-radius: 50px
-  border: 3px solid #ccc
-  -webkit-transition: 0.5s
-  transition: 0.5s
-  outline: none
-
-
-// input[type=text],[type=email ],[type=password]:focus 
-//   border: 3px solid #555
- 
-
-
-
-.flexRow
-  width: 400px
-  display: flex
-  flex-direction: row
-
-
-
-
-.flexcollumn
-  display: flex
-  flex-direction: column
-  width: 100%
-  height: 100%
-  align-items: baseline
-  border: 1px solid salmon 
-
-  margin: auto
-
-
-
-
-
-
-
