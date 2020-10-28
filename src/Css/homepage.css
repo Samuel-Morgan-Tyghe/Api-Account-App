@@ -28,7 +28,7 @@
 .editableSize {
   border: 2px solid #F1E3E4;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 2px;
   text-align: left; }
 
 .flexRow {
@@ -39,7 +39,7 @@
       width: 100%; } }
 
 .flexcollumn {
-  border-radius: 10px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   width: 100%;

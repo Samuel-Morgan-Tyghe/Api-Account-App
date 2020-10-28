@@ -35,7 +35,12 @@ class LoginForm extends React.Component {
     });
 
     if (name === "email") {
+      console.log(value)
+      console.log('emailiswrong')
+
       if (isEmail(event.target.value)) {
+        console.log('its a valid email')
+
         this.setState({ submitDisable: "true" });
         axios({
           method: "get",
@@ -43,10 +48,14 @@ class LoginForm extends React.Component {
         }).then(
           (response) => {
             if (response.data.length === 0) {
+              console.log( 'its not in our database')
+
               this.setState({ emailNotInUse: "emailNotInUse flagEmailInUse" });
-            } else {
               this.setState({ submitDisable: "false" });
 
+            } else {
+              console.log('its in our database')
+              this.setState({ submitDisable: "true" });
               this.setState({ emailNotInUse: "emailNotInUse" });
             }
           },
@@ -54,9 +63,13 @@ class LoginForm extends React.Component {
             console.log(error);
           }
         );
+        console.log()
 
         this.setState({ emailClass: "emailClass" });
+  
       }
+      console.log(this.submitDisable)
+
     }
   }
 
@@ -64,6 +77,8 @@ class LoginForm extends React.Component {
     let email = this.state.email;
     let pwd = this.state.password;
 
+
+    if(!this.submitDisable){
     axios({
       method: "get",
       url: "http://localhost:3000/AAAUsers?email=" + email,
@@ -79,6 +94,7 @@ class LoginForm extends React.Component {
         console.log(error);
       }
     );
+    }
 
     event.preventDefault();
   }
@@ -124,7 +140,7 @@ class LoginForm extends React.Component {
         </span>
 
         <Link to="/CreateAccountForm">CreateAccountForm</Link>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit"  disabled={!this.state.submitDisable} />
       </form>
 
       // wirecast react ,  1.5 speed code development, and keywords to research    4h

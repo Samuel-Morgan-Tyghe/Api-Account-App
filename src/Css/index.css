@@ -9,12 +9,16 @@
   display: none; }
 
 .flagEmailInUse {
+  color: red;
+  background-color: white;
   display: flex; }
 
 .flagValidator {
   border: dashed red; }
 
 .flagPassword {
+  background-color: white;
+  color: red;
   display: flex; }
 
 .hidePasswordCharAlert {
@@ -59,7 +63,7 @@ input [type="file"] {
 .editableSize {
   border: 2px solid #F1E3E4;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 2px;
   text-align: left; }
 
 .flexRow {
@@ -70,7 +74,7 @@ input [type="file"] {
       width: 100%; } }
 
 .flexcollumn {
-  border-radius: 10px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -83,12 +87,16 @@ input [type="file"] {
   display: none; }
 
 .flagEmailInUse {
+  color: red;
+  background-color: white;
   display: flex; }
 
 .wrongPassword {
   display: none; }
 
 .flagWrongPassword {
+  color: red;
+  background-color: white;
   display: flex; }
 
 .nav-links {
@@ -98,6 +106,10 @@ input [type="file"] {
 .App * {
   font-family: 'jost';
   font-size: 16px; }
+
+.wrapper {
+  background-image: url("https://media1.thehungryjpeg.com/thumbs2/ori_1199_rs08lbcg1tg7b8l3rsdjwqa73z91wuy5q0l0fkvd_photocopy-noise-texture-pack.jpg");
+  background-blend-mode: overlay; }
 
 .wrapper {
   position: absolute;
@@ -133,8 +145,7 @@ input [type="file"] {
     padding: .5rem;
     transition: 0.5s background ease; }
     .wrapper input:hover {
-      background-color: #F1E3E4;
-      color: white; }
+      background-color: #F1E3E4; }
   .wrapper input[type=submit], .wrapper [type=reset] {
     margin-top: 10px;
     border: 0;
