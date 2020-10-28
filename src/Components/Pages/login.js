@@ -5,11 +5,7 @@ import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import isEmail from "validator/lib/isEmail";
 
-
-import {
-  BrowserRouter as 
-  useLocation
-} from "react-router-dom";
+import { BrowserRouter as useLocation } from "react-router-dom";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -21,7 +17,7 @@ class LoginForm extends React.Component {
       emailNotInUse: "emailNotInUse",
       wrongPassword: "wrongPassword",
       submitBool: true,
-      value: ""
+      value: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,9 +25,13 @@ class LoginForm extends React.Component {
   }
 
   componentDidMount() {
-//     let location = useLocation();
-// console.log(location)
-     console.log("property_id",this.props.location.state);
+    // passes email from validate
+    try {
+      this.setState({ email: this.props.location.data.email });
+    } catch (error) {
+      console.log(error);
+      this.setState({ email: "" });
+    }
   }
 
   handleChange(event) {
@@ -44,19 +44,17 @@ class LoginForm extends React.Component {
     });
 
     if (name === "email") {
+      //check and get email is it in database?
       this.setState({ submitBool: false });
 
       if (isEmail(event.target.value)) {
-
         axios({
           method: "get",
           url: "http://localhost:3000/AAAUsers?email=" + value,
         }).then(
           (response) => {
             if (response.data.length === 0) {
-
               this.setState({ emailNotInUse: "emailNotInUse flagEmailInUse" });
-
             } else {
               this.setState({ submitBool: true });
 
@@ -69,9 +67,7 @@ class LoginForm extends React.Component {
         );
 
         this.setState({ emailClass: "emailClass" });
-  
       }
-
     }
   }
 
@@ -79,34 +75,31 @@ class LoginForm extends React.Component {
     let email = this.state.email;
     let pwd = this.state.password;
 
-    if(this.state.submitBool){
-
-    axios({
-      method: "get",
-      url: "http://localhost:3000/AAAUsers?email=" + email,
-    }).then(
-      (response) => {
-        if (response.data[0].password === pwd) {
-          this.setState({ redirect: "/tohomepage" });
-        } else {
-          this.setState({ wrongPassword: "wrongPassword flagWrongPassword" });
+    if (this.state.submitBool) {
+      axios({
+        method: "get",
+        url: "http://localhost:3000/AAAUsers?email=" + email,
+      }).then(
+        (response) => {
+          if (response.data[0].password === pwd) {
+            // does password match with database
+            this.setState({ redirect: "/homepage" });
+          } else {
+            this.setState({ wrongPassword: "wrongPassword flagWrongPassword" });
+          }
+        },
+        (error) => {
+          console.log(error);
         }
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+      );
     }
 
     event.preventDefault();
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
-    }
     return (
-      <form 
+      <form
         className="wrapper"
         name="loginForm"
         method="post"
@@ -142,10 +135,8 @@ class LoginForm extends React.Component {
         </span>
 
         <Link to="/CreateAccountForm">CreateAccountForm</Link>
-        <input type="submit" value="Submit"  disabled={!this.state.submitBool} />
+        <input type="submit" value="Submit" disabled={!this.state.submitBool} />
       </form>
-
-
     );
   }
 }

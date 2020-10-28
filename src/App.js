@@ -17,7 +17,7 @@ function App() {
           <Route path="/" component={EmailValidate} exact />
           <Route path="/LoginForm" component={LoginForm} />
           <Route path="/CreateAccountForm" component={CreateAccountForm} />
-          <Route path="/HomePage"  component={HomePage} />
+          <Route path="/HomePage" component={HomePage} />
         </div>
       </Switch>
     </Router>

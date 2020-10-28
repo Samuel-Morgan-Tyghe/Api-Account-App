@@ -1,15 +1,19 @@
 .emailNotInUse {
-  display: none; }
+  display: none;
+}
 
 .flagEmailInUse {
   color: red;
   background-color: white;
-  display: flex; }
+  display: flex;
+}
 
 .wrongPassword {
-  display: none; }
+  display: none;
+}
 
 .flagWrongPassword {
   color: red;
   background-color: white;
-  display: flex; }
+  display: flex;
+}

@@ -2,32 +2,41 @@
   display: flex;
   flex-direction: row;
   justify-items: baseline;
-  allign-items: baseline; }
+  allign-items: baseline;
+}
 
 .emailInUse {
-  display: none; }
+  display: none;
+}
 
 .flagEmailInUse {
   color: red;
   background-color: white;
-  display: flex; }
+  display: flex;
+}
 
 .flagValidator {
-  border: dashed red; }
+  border: dashed red;
+}
 
 .flagPassword {
   background-color: white;
   color: red;
-  display: flex; }
+  display: flex;
+}
 
 .hidePasswordCharAlert {
-  display: none; }
+  display: none;
+}
 
 .hidePasswordNumAlert {
-  display: none; }
+  display: none;
+}
 
 input [type="file"] {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 .uploadAvatar {
-  display: none; }
+  display: none;
+}

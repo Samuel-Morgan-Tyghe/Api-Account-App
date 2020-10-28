@@ -3,35 +3,44 @@
   display: flex;
   flex-direction: row;
   justify-items: baseline;
-  allign-items: baseline; }
+  allign-items: baseline;
+}
 
 .emailInUse {
-  display: none; }
+  display: none;
+}
 
 .flagEmailInUse {
   color: red;
   background-color: white;
-  display: flex; }
+  display: flex;
+}
 
 .flagValidator {
-  border: dashed red; }
+  border: dashed red;
+}
 
 .flagPassword {
   background-color: white;
   color: red;
-  display: flex; }
+  display: flex;
+}
 
 .hidePasswordCharAlert {
-  display: none; }
+  display: none;
+}
 
 .hidePasswordNumAlert {
-  display: none; }
+  display: none;
+}
 
 input [type="file"] {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 .uploadAvatar {
-  display: none; }
+  display: none;
+}
 
 .outerApi {
   display: flex;
@@ -39,39 +48,49 @@ input [type="file"] {
   align-content: center;
   justify-content: center;
   padding: 1rem;
-  margin: 1em; }
-  .outerApi .buttonOuterFlow button, .outerApi .buttonOuterFlow #signOut {
-    align-content: center;
-    justify-content: center;
-    margin: 10px;
-    display: flex;
-    width: 100%; }
+  margin: 1em;
+}
+.outerApi .buttonOuterFlow button,
+.outerApi .buttonOuterFlow #signOut {
+  align-content: center;
+  justify-content: center;
+  margin: 10px;
+  display: flex;
+  width: 100%;
+}
 
 .apiListInner {
   text-align: center;
   max-width: 400px;
-  border: 2px solid #A288A6;
+  border: 2px solid #a288a6;
   resize: none;
   margin: 10px;
   padding: 2rem;
   border-radius: 10px;
-  display: flexbox; }
-  @media only screen and (max-width: 768px) {
-    .apiListInner {
-      width: 100%; } }
+  display: flexbox;
+}
+@media only screen and (max-width: 768px) {
+  .apiListInner {
+    width: 100%;
+  }
+}
 
 .editableSize {
-  border: 2px solid #F1E3E4;
+  border: 2px solid #f1e3e4;
   margin: 5px;
   border-radius: 2px;
-  text-align: left; }
+  text-align: left;
+}
 
 .flexRow {
   width: 400px;
-  flex-direction: row; }
-  @media only screen and (max-width: 768px) {
-    .flexRow {
-      width: 100%; } }
+  flex-direction: row;
+}
+@media only screen and (max-width: 768px) {
+  .flexRow {
+    width: 100%;
+  }
+}
 
 .flexcollumn {
   border-radius: 2px;
@@ -81,87 +100,107 @@ input [type="file"] {
   height: 100%;
   align-items: baseline;
   margin: auto;
-  text-align: center; }
+  text-align: center;
+}
 
 .emailNotInUse {
-  display: none; }
+  display: none;
+}
 
 .flagEmailInUse {
   color: red;
   background-color: white;
-  display: flex; }
+  display: flex;
+}
 
 .wrongPassword {
-  display: none; }
+  display: none;
+}
 
 .flagWrongPassword {
   color: red;
   background-color: white;
-  display: flex; }
+  display: flex;
+}
 
 .nav-links {
   justify-content: space-around;
-  list-style: none; }
+  list-style: none;
+}
 
 .App * {
-  font-family: 'jost';
-  font-size: 16px; }
+  font-family: "jost";
+  font-size: 16px;
+}
 
 .wrapper {
   background-image: url("https://media1.thehungryjpeg.com/thumbs2/ori_1199_rs08lbcg1tg7b8l3rsdjwqa73z91wuy5q0l0fkvd_photocopy-noise-texture-pack.jpg");
-  background-blend-mode: overlay; }
+  background-blend-mode: overlay;
+}
 
 .wrapper {
   position: absolute;
   width: 400px;
-  border: 2px solid #A288A6;
+  border: 2px solid #a288a6;
   padding: 3rem;
   border-radius: 10px;
-  background-color: #F1E3E4;
-  box-shadow: 3px 6px 4px #1C1D21;
-  color: #1C1D21;
+  background-color: #f1e3e4;
+  box-shadow: 3px 6px 4px #1c1d21;
+  color: #1c1d21;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); }
-  @media only screen and (max-width: 768px) {
-    .wrapper {
-      width: 80%;
-      height: 100%;
-      position: relative;
-      -ms-transform: translate(0%, 0%);
-      transform: translate(0%, 0%);
-      top: 0%;
-      left: 0%; } }
-  .wrapper label {
-    display: block;
-    border-radius: 10px;
-    padding: 1rem 0 .25rem 0; }
-  .wrapper input {
-    display: block;
-    width: 90%;
-    border-radius: 5px;
-    border: 2px solid #F1E3E4;
-    padding: .5rem;
-    transition: 0.5s background ease; }
-    .wrapper input:hover {
-      background-color: #F1E3E4; }
-  .wrapper input[type=submit], .wrapper [type=reset] {
-    margin-top: 10px;
-    border: 0;
-    background-color: #A288A6;
-    color: white;
-    width: auto;
-    transition: 0.5s background ease; }
-    .wrapper input[type=submit]:hover, .wrapper [type=reset]:hover {
-      background-color: #BB9BB0; }
+  transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    width: 80%;
+    height: 100%;
+    position: relative;
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    top: 0%;
+    left: 0%;
+  }
+}
+.wrapper label {
+  display: block;
+  border-radius: 10px;
+  padding: 1rem 0 0.25rem 0;
+}
+.wrapper input {
+  display: block;
+  width: 90%;
+  border-radius: 5px;
+  border: 2px solid #f1e3e4;
+  padding: 0.5rem;
+  transition: 0.5s background ease;
+}
+.wrapper input:hover {
+  background-color: #f1e3e4;
+}
+.wrapper input[type="submit"],
+.wrapper [type="reset"] {
+  margin-top: 10px;
+  border: 0;
+  background-color: #a288a6;
+  color: white;
+  width: auto;
+  transition: 0.5s background ease;
+}
+.wrapper input[type="submit"]:hover,
+.wrapper [type="reset"]:hover {
+  background-color: #bb9bb0;
+}
 
 .loadingIcon {
   position: fixed;
   display: block;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+}
 
 .hideIcon {
-  display: none; }
+  display: none;
+}

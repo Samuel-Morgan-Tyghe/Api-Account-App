@@ -32,17 +32,17 @@ class EmailValidate extends React.Component {
     }).then(
       (response) => {
         if (response.data.length === 0) {
-          this.props.history.push({
-            pathname: "/shopdetail",
-            state: {
-              key: "value",
-            },
-          });
+          // checks if email exists
 
           this.setState({ redirect: "/CreateAccountForm" });
         } else {
           this.setState({ redirect: "/LoginForm" });
         }
+
+        this.props.history.push({
+          pathname: this.state.redirect,
+          data: { email: this.state.value },
+        });
       },
       (error) => {
         console.log(error);
@@ -53,20 +53,6 @@ class EmailValidate extends React.Component {
   }
 
   render() {
-
-
-    if (this.state.redirect) {
-      return (
-        <Redirect
-          to={{
-            pathname: this.state.redirect,
-            data: { email: this.state.value },
-            //this should pass email address to next page
-          }}
-        />
-      );
-    }
-
     return (
       <form
         className="wrapper"
@@ -74,7 +60,6 @@ class EmailValidate extends React.Component {
         method="post"
         onSubmit={this.handleSubmit}
       >
-
         <input
           type="email"
           id="email"

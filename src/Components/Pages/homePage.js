@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import loadingIcon from "../../Assets/yy3.gif";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -9,42 +9,52 @@ class Homepage extends React.Component {
     this.state = {
       apiList: [],
       loadingIcon: "hideIcon",
-      tempApi: "",
-      id: "",
+      tempUser: {
+        email: "",
+        first_name: "",
+        last_name: "",
+        password: "",
+        avatar: "",
+        id: 0,
+      },
+      logUser: null,
       email: "",
-      first_name: "",
-      last_name: "",
-      password: "",
-      avatar: "",
     };
+    if (localStorage.getItem("logUser") !== undefined) {
+      this.state.logUser = JSON.parse(localStorage.getItem("logUser"));
+    } else {
+      this.props.history.push({
+        pathname: "/",
+      }); // bug* this doesn't redirect
+    }
     this.handleChange = this.handleChange.bind(this);
     this.myRef = React.createRef();
   }
 
   updateUser = (event) => {
-    console.log(event.target.value);
+    let id = event.target.value;
+    let userdata = this.state.apiList.find((x) => x.id == id);
 
-    //   axios({
-    //     method: 'PATCH',
-    //     url: 'http://localhost:3000/AAAUsers/'+ event.target.value,
+    axios({
+      method: "PATCH",
+      url: "http://localhost:3000/AAAUsers/" + event.target.value,
 
-    //     data: {
-    //       "email": event.target.email,
-    //       "first_name": fname,
-    //       "last_name": lname,
-    //       "password": pwd,
-    //       "avatar": img
-    //   }
-    //   })
-
-    //   .then(response => {
-    //     this.componentDidMount()
-    //     this.setState({loadingIcon: 'hideIcon'})
-    //     console.log(response)
-    // })
-    // .catch(error => {
-    //     console.log(error.response)
-    // });
+      data: {
+        email: userdata.email,
+        first_name: userdata.first_name,
+        last_name: userdata.last_name,
+        password: userdata.password,
+        avatar: userdata.avatar,
+      },
+    })
+      .then((response) => {
+        this.componentDidMount();
+        this.setState({ loadingIcon: "hideIcon" });
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   };
 
   deleteUser = (event) => {
@@ -91,15 +101,18 @@ class Homepage extends React.Component {
       });
   };
 
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-    console.log(target + "-----" + value + "-----" + name);
+  handleChange(id, name, value, event) {
+    let new_tempUser = null;
+    if (id !== this.state.tempUser.id) {
+      new_tempUser = this.state.apiList.find((x) => x.id === id);
 
-    this.setState({
-      [name]: value,
-    });
+      console.log(new_tempUser);
+    } else {
+      new_tempUser = { ...this.state.tempUser };
+    }
+    new_tempUser[name] = value;
+
+    this.setState({ tempUser: new_tempUser });
   }
 
   componentDidMount = () => {
@@ -124,15 +137,18 @@ class Homepage extends React.Component {
   };
 
   render() {
-    // React.useEffect(() => {
-    //   localStorage.setItem('myValueInLocalStorage', value);
-    // }, [value]);
+    let welcomeMessage = (
+      <h1>Hello Guest, Welcome to the Api Account Application</h1>
+    );
+    if (this.state.logUser != undefined) {
+      welcomeMessage = (
+        <h1>
+          Hello {this.state.logUser.first_name}, Welcome to the Api Account
+          Application
+        </h1>
+      );
+    }
 
-    // {this.state.apiList.map((apiList, key) =>
-
-    // this.state.email = apiList.email
-    console.log(this.state.tempApi);
-    //     )}
     return (
       <div className="outerApi">
         <div className="buttonOuterFlow">
@@ -142,6 +158,7 @@ class Homepage extends React.Component {
           </Link>
         </div>
 
+        {welcomeMessage}
         <img
           className={this.state.loadingIcon}
           src={loadingIcon}
@@ -151,17 +168,20 @@ class Homepage extends React.Component {
         ></img>
 
         {this.state.apiList.map((content) => (
-          <div
-            className={"apiListInner"}
-            ref={this.myRef}
-            //  onBlur={(e)=> this.setState({tempApi:e.currentTarget.textContent})}
-          >
+          <div className={"apiListInner"}>
             <div className={"flexRow"}>
               <p className={"flexcollumn"}>Email:</p>
 
               <div
                 className={"editableSize"}
-                onBlur={(e) => console.log(e.target.id)}
+                onBlur={(e) => {
+                  this.handleChange(
+                    content.id,
+                    "email",
+                    e.currentTarget.textContent,
+                    e
+                  );
+                }}
                 suppressContentEditableWarning
                 contentEditable="true"
                 value={content.email}
@@ -174,9 +194,14 @@ class Homepage extends React.Component {
               <p className={"flexcollumn"}>First Name: </p>
               <div
                 className={"editableSize"}
-                onBlur={(e) =>
-                  this.setState({ tempApi: e.currentTarget.textContent })
-                }
+                onBlur={(e) => {
+                  this.handleChange(
+                    content.id,
+                    "first_name",
+                    e.currentTarget.textContent,
+                    e
+                  );
+                }}
                 suppressContentEditableWarning
                 contentEditable="true"
               >
@@ -188,6 +213,14 @@ class Homepage extends React.Component {
               <p className={"flexcollumn"}>Last Name: </p>
               <div
                 className={"editableSize"}
+                onBlur={(e) => {
+                  this.handleChange(
+                    content.id,
+                    "last_name",
+                    e.currentTarget.textContent,
+                    e
+                  );
+                }}
                 suppressContentEditableWarning
                 contentEditable="true"
               >
@@ -217,7 +250,12 @@ class Homepage extends React.Component {
               <button onClick={this.deleteUser} value={content.id}>
                 Delete User : {content.id}
               </button>
-              <button onClick={this.updateUser} value={content.id}>
+              <button
+                onClick={(e) => {
+                  this.updateUser(e);
+                }}
+                value={content.id}
+              >
                 Update User : {content.id}
               </button>
             </div>
@@ -228,12 +266,3 @@ class Homepage extends React.Component {
   }
 }
 export default Homepage;
-
-// create
-// PerformanceResourceTiming,
-// condition rendiering
-//  hooks
-
-// pass value route to another , redirect doc, pass value via redirect
-//add bootstrap, use grid use template
-//html required
