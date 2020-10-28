@@ -14,20 +14,10 @@ function App() {
       {/* <Nav /> */}
       <Switch>
         <div className="App">
-          <Route path="/" exact>
-            <EmailValidate />
-          </Route>
-
-          <Route path="/LoginForm">
-            <LoginForm />
-          </Route>
-
-          <Route path="/CreateAccountForm">
-            <CreateAccountForm />
-          </Route>
-          <Route path="/HomePage">
-            <HomePage />
-          </Route>
+          <Route path="/" component={EmailValidate} exact />
+          <Route path="/LoginForm" component={LoginForm} />
+          <Route path="/CreateAccountForm" component={CreateAccountForm} />
+          <Route path="/HomePage"  component={HomePage} />
         </div>
       </Switch>
     </Router>

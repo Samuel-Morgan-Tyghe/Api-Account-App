@@ -53,8 +53,7 @@ class EmailValidate extends React.Component {
   }
 
   render() {
-    console.log(this.state.redirect + "?????");
-    console.log(this.state.value + "?????");
+
 
     if (this.state.redirect) {
       return (
@@ -75,7 +74,6 @@ class EmailValidate extends React.Component {
         method="post"
         onSubmit={this.handleSubmit}
       >
-        {/* <label htmlFor="email" >Enter your email:</label> */}
 
         <input
           type="email"
