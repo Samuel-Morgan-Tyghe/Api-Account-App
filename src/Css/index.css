@@ -3,44 +3,38 @@
   display: flex;
   flex-direction: row;
   justify-items: baseline;
-  allign-items: baseline;
-}
+  allign-items: baseline; }
 
-.emailInUse {
-  display: none;
-}
+.termsWrapper {
+  display: inline-flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-around; }
+  .termsWrapper .radioTerms {
+    width: auto; }
 
-.flagEmailInUse {
-  color: red;
-  background-color: white;
-  display: flex;
-}
+.uploadAvatar {
+  display: none; }
 
-.flagValidator {
-  border: dashed red;
-}
+.altUploadAvatar {
+  color: grey;
+  cursor: pointer;
+  background-color: white; }
+
+.createOuterButtons {
+  display: inline-flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  text-decoration: none; }
 
 .flagPassword {
   background-color: white;
   color: red;
-  display: flex;
-}
-
-.hidePasswordCharAlert {
-  display: none;
-}
-
-.hidePasswordNumAlert {
-  display: none;
-}
+  display: flex; }
 
 input [type="file"] {
-  visibility: hidden;
-}
-
-.uploadAvatar {
-  display: none;
-}
+  visibility: hidden; }
 
 .outerApi {
   display: flex;
@@ -48,49 +42,39 @@ input [type="file"] {
   align-content: center;
   justify-content: center;
   padding: 1rem;
-  margin: 1em;
-}
-.outerApi .buttonOuterFlow button,
-.outerApi .buttonOuterFlow #signOut {
-  align-content: center;
-  justify-content: center;
-  margin: 10px;
-  display: flex;
-  width: 100%;
-}
+  margin: 1em; }
+  .outerApi .buttonOuterFlow button, .outerApi .buttonOuterFlow #signOut {
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+    display: flex;
+    width: 100%; }
 
 .apiListInner {
   text-align: center;
   max-width: 400px;
-  border: 2px solid #a288a6;
+  border: 2px solid #A288A6;
   resize: none;
   margin: 10px;
   padding: 2rem;
   border-radius: 10px;
-  display: flexbox;
-}
-@media only screen and (max-width: 768px) {
-  .apiListInner {
-    width: 100%;
-  }
-}
+  display: flexbox; }
+  @media only screen and (max-width: 768px) {
+    .apiListInner {
+      width: 100%; } }
 
 .editableSize {
-  border: 2px solid #f1e3e4;
+  border: 2px solid #F1E3E4;
   margin: 5px;
   border-radius: 2px;
-  text-align: left;
-}
+  text-align: left; }
 
 .flexRow {
   width: 400px;
-  flex-direction: row;
-}
-@media only screen and (max-width: 768px) {
-  .flexRow {
-    width: 100%;
-  }
-}
+  flex-direction: row; }
+  @media only screen and (max-width: 768px) {
+    .flexRow {
+      width: 100%; } }
 
 .flexcollumn {
   border-radius: 2px;
@@ -100,107 +84,119 @@ input [type="file"] {
   height: 100%;
   align-items: baseline;
   margin: auto;
-  text-align: center;
-}
-
-.emailNotInUse {
-  display: none;
-}
-
-.flagEmailInUse {
-  color: red;
-  background-color: white;
-  display: flex;
-}
-
-.wrongPassword {
-  display: none;
-}
-
-.flagWrongPassword {
-  color: red;
-  background-color: white;
-  display: flex;
-}
-
-.nav-links {
-  justify-content: space-around;
-  list-style: none;
-}
-
-.App * {
-  font-family: "jost";
-  font-size: 16px;
-}
-
-.wrapper {
-  background-image: url("https://media1.thehungryjpeg.com/thumbs2/ori_1199_rs08lbcg1tg7b8l3rsdjwqa73z91wuy5q0l0fkvd_photocopy-noise-texture-pack.jpg");
-  background-blend-mode: overlay;
-}
-
-.wrapper {
-  position: absolute;
-  width: 400px;
-  border: 2px solid #a288a6;
-  padding: 3rem;
-  border-radius: 10px;
-  background-color: #f1e3e4;
-  box-shadow: 3px 6px 4px #1c1d21;
-  color: #1c1d21;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-@media only screen and (max-width: 768px) {
-  .wrapper {
-    width: 80%;
-    height: 100%;
-    position: relative;
-    -ms-transform: translate(0%, 0%);
-    transform: translate(0%, 0%);
-    top: 0%;
-    left: 0%;
-  }
-}
-.wrapper label {
-  display: block;
-  border-radius: 10px;
-  padding: 1rem 0 0.25rem 0;
-}
-.wrapper input {
-  display: block;
-  width: 90%;
-  border-radius: 5px;
-  border: 2px solid #f1e3e4;
-  padding: 0.5rem;
-  transition: 0.5s background ease;
-}
-.wrapper input:hover {
-  background-color: #f1e3e4;
-}
-.wrapper input[type="submit"],
-.wrapper [type="reset"] {
-  margin-top: 10px;
-  border: 0;
-  background-color: #a288a6;
-  color: white;
-  width: auto;
-  transition: 0.5s background ease;
-}
-.wrapper input[type="submit"]:hover,
-.wrapper [type="reset"]:hover {
-  background-color: #bb9bb0;
-}
+  text-align: center; }
 
 .loadingIcon {
   position: fixed;
   display: block;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
+  transform: translate(-50%, -50%); }
+
+.flagWrongPassword {
+  color: red;
+  background-color: white;
+  display: flex; }
+
+.loginOuterButtons {
+  display: inline-flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  text-decoration: none; }
+
+.nav-links {
+  justify-content: space-around;
+  list-style: none; }
+
+.App * {
+  font-family: 'jost';
+  font-size: 16px; }
+
+.wrapper {
+  background-image: url("https://media1.thehungryjpeg.com/thumbs2/ori_1199_rs08lbcg1tg7b8l3rsdjwqa73z91wuy5q0l0fkvd_photocopy-noise-texture-pack.jpg");
+  background-blend-mode: overlay; }
+
+.wrapper {
+  position: absolute;
+  width: 400px;
+  border: 2px solid #A288A6;
+  padding: 3rem;
+  border-radius: 10px;
+  background-color: #F1E3E4;
+  box-shadow: 3px 6px 4px #1C1D21;
+  color: #1C1D21;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  @media only screen and (max-width: 768px) {
+    .wrapper {
+      width: 80%;
+      height: 100%;
+      position: relative;
+      -ms-transform: translate(0%, 0%);
+      transform: translate(0%, 0%);
+      top: 0%;
+      left: 0%; } }
+  .wrapper label {
+    display: block;
+    border-radius: 10px;
+    padding: 1rem 0 .25rem 0; }
+  .wrapper input, .wrapper .altUploadAvatar, .wrapper .linkButton {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #F1E3E4;
+    padding: .5rem 0 .5rem 0;
+    transition: 0.5s background ease; }
+    .wrapper input:hover, .wrapper .altUploadAvatar:hover, .wrapper .linkButton:hover {
+      background-color: #F1E3E4; }
+    .wrapper input[type=file], .wrapper .altUploadAvatar[type=file], .wrapper .linkButton[type=file] {
+      display: none; }
+  .wrapper input[type=submit], .wrapper [type=reset], .wrapper .linkButton {
+    display: inline;
+    justify-self: flex-end;
+    padding: .5rem;
+    margin-top: 10px;
+    border: 0;
+    background-color: #A288A6;
+    color: white;
+    width: auto;
+    transition: 0.5s background ease; }
+    .wrapper input[type=submit]:hover, .wrapper [type=reset]:hover, .wrapper .linkButton:hover {
+      background-color: #BB9BB0; }
 
 .hideIcon {
-  display: none;
-}
+  display: none; }
+
+.linkRedirect {
+  text-decoration: none; }
+
+.emailInUse {
+  display: none; }
+
+.flagEmailInUse {
+  color: red;
+  background-color: white;
+  display: flex; }
+
+.flagValidator {
+  border: dashed red; }
+
+.hidePasswordCharAlert {
+  display: none; }
+
+.hidePasswordNumAlert {
+  display: none; }
+
+.emailNotInUse {
+  display: none; }
+
+.flagEmailInUse {
+  color: red;
+  background-color: white;
+  display: flex; }
+
+.wrongPassword {
+  display: none; }

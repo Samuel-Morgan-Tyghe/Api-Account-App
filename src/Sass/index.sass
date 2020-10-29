@@ -44,23 +44,31 @@ $ruler: 16px
     left: 0%
    
 
-  label
+  label , 
     display: block
     border-radius: 10px
     padding: 1rem 0 .25rem 0
+
     
 
-  input
+  input, .altUploadAvatar , .linkButton
     display: block
-    width: 90%
+    width: 100%
     border-radius: 5px
     border: 2px solid #F1E3E4
-    padding: .5rem
+    padding: .5rem 0 .5rem 0
     transition: 0.5s background ease
     &:hover
       background-color: #F1E3E4
-  input[ type=submit ],[type=reset]
-    margin-top: 10px
+    &[type=file]
+      display: none
+    
+
+  input[ type=submit ],[type=reset], .linkButton
+    display: inline
+    justify-self: flex-end
+    padding: .5rem
+    margin-top: 10px  // not sure
     border: 0
     background-color: #A288A6
     color: white
@@ -68,14 +76,50 @@ $ruler: 16px
     transition: 0.5s background ease
     &:hover
       background-color: #BB9BB0
+  
 
-.loadingIcon
-  position: fixed
-  display: block
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
+  
+
+
+
+
+
+
+// Functional Classes
 
 .hideIcon
 
   display: none
+
+.linkRedirect
+  text-decoration: none
+
+.emailInUse
+  display: none
+
+.flagEmailInUse
+  color: red
+  background-color: white
+  display: flex
+
+
+.flagValidator
+  border: dashed red
+
+.hidePasswordCharAlert
+  display: none
+
+.hidePasswordNumAlert
+  display: none
+
+.emailNotInUse
+  display: none
+
+.flagEmailInUse
+  color: red
+  background-color: white
+  display: flex
+
+.wrongPassword
+  display: none
+

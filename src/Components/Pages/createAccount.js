@@ -21,10 +21,13 @@ class CreateAccountForm extends React.Component {
       passwordNumber: "hidePasswordNumAlert",
       passwordBool: "fail",
       passwordBool2: "fail",
+
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.fileInput = React.createRef();
+
   }
 
   componentDidMount() {
@@ -93,8 +96,9 @@ class CreateAccountForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state.passwordBool);
-    console.log(this.state.passwordBool2);
+
+
+   
 
     if (
       this.state.passwordBool === "pass" &&
@@ -156,6 +160,7 @@ class CreateAccountForm extends React.Component {
         method="post"
         onSubmit={this.handleSubmit}
       >
+        <div className='innerWrapper'>
         <label htmlFor="email">Enter your email:</label>
         <input
           type="email"
@@ -172,7 +177,6 @@ class CreateAccountForm extends React.Component {
 
         <label htmlFor="fname">First name:</label>
         <input
-          className={"roundedInput"}
           type="text"
           placeholder="Enter First Name"
           name="fname"
@@ -183,7 +187,6 @@ class CreateAccountForm extends React.Component {
 
         <label htmlFor="lname">Last name:</label>
         <input
-          className={"roundedInput"}
           type="text"
           placeholder="Enter Last Name"
           name="lname"
@@ -194,7 +197,6 @@ class CreateAccountForm extends React.Component {
 
         <label htmlFor="pwd">Password:</label>
         <input
-          className={"roundedInput"}
           type="password"
           placeholder="Enter Password"
           name="password"
@@ -209,19 +211,22 @@ class CreateAccountForm extends React.Component {
         <span className={this.state.passwordNumber}>
           Password must contain at least 1 numbers
         </span>
-
         <label className={"chooseAvatarlabel"} htmlFor="img">
-          Choose Avatar:
+        Choose Avatar:</label>
+        <label className={"chooseAvatarlabel"} htmlFor="img">
           <input
             className={"uploadAvatar"}
             placeholder="chooseAvatar"
+            defaultValue=""
             id="img"
             type="file"
+            ref={this.fileInput}
             name="img"
             accept="image/*"
             value={this.state.img}
             onChange={this.handleChange}
           ></input>
+            <i className="altUploadAvatar" placeholder="Click Here to Upload Avatar">Upload Avatar</i> 
         </label>
 
         <div className="termsWrapper">
@@ -236,9 +241,13 @@ class CreateAccountForm extends React.Component {
           </label>
         </div>
 
-        <Link to="/LoginForm">LoginForm</Link>
+
+        <div className='createOuterButtons'>
         <input type="submit" value="Submit" />
         <input type="reset"></input>
+        <Link to="/LoginForm" className='linkRedirect'><p className='linkButton' >LoginForm</p></Link>
+        </div>
+        </div>
       </form>
     );
   }

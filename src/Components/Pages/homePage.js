@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import loadingIcon from "../../Assets/yy3.gif";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -123,7 +123,6 @@ class Homepage extends React.Component {
       (response) => {
         this.setState({ loadingIcon: "loadingIcon" });
 
-        let i;
         this.setState({
           apiList: response.data,
         });
@@ -168,7 +167,7 @@ class Homepage extends React.Component {
         ></img>
 
         {this.state.apiList.map((content) => (
-          <div className={"apiListInner"}>
+          <div className={"apiListInner"} key={content.id}>
             <div className={"flexRow"}>
               <p className={"flexcollumn"}>Email:</p>
 

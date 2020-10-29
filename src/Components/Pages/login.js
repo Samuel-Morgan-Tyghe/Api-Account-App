@@ -1,12 +1,8 @@
 import React from "react";
 
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import isEmail from "validator/lib/isEmail";
-
-import { BrowserRouter as useLocation } from "react-router-dom";
-
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -122,7 +118,6 @@ class LoginForm extends React.Component {
         <label htmlFor="pwd">Password:</label>
         <input
           type="password"
-          className={"roundedInput"}
           placeholder="Enter Password"
           name="password"
           autoComplete="on"
@@ -134,8 +129,12 @@ class LoginForm extends React.Component {
           This Password Is Not Correct
         </span>
 
-        <Link to="/CreateAccountForm">CreateAccountForm</Link>
-        <input type="submit" value="Submit" disabled={!this.state.submitBool} />
+
+        <div className='loginOuterButtons'>
+        <input type="submit" value="Submit" disabled={!this.state.submitBool} ></input>
+        <Link to="/CreateAccountForm" className='linkRedirect'><p className='linkButton' >CreateAccountForm</p></Link>
+
+        </div>
       </form>
     );
   }
