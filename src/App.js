@@ -9,15 +9,15 @@ import HomePage from "./Components/Pages/homePage.js";
 function App() {
   return (
     <div className="App">
-    <Router >
-      {/* <Nav /> */}
-      <Switch>
+      <Router>
+        {/* <Nav /> */}
+        <Switch>
           <Route path="/" component={EmailValidate} exact />
           <Route path="/LoginForm" component={LoginForm} />
           <Route path="/CreateAccountForm" component={CreateAccountForm} />
           <Route path="/HomePage" component={HomePage} />
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
     </div>
   );
 }

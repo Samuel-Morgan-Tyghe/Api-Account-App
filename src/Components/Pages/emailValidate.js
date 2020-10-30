@@ -10,6 +10,12 @@ class EmailValidate extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    if (localStorage.getItem("logUser") !== null) {
+      this.props.history.push({
+        pathname: "/homepage",
+      });
+    }
   }
 
   handleChange(event) {

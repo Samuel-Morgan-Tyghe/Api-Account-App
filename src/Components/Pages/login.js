@@ -1,6 +1,7 @@
 import React from "react";
 
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import isEmail from "validator/lib/isEmail";
 class LoginForm extends React.Component {
@@ -8,6 +9,9 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: "",
+      password: "",
+      first_name: "",
+      last_name: "",
       password: "",
       emailClass: "emailClass",
       emailNotInUse: "emailNotInUse",
@@ -18,6 +22,12 @@ class LoginForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    if (localStorage.getItem("logUser") !== null) {
+      this.props.history.push({
+        pathname: "/homepage",
+      });
+    }
   }
 
   componentDidMount() {
@@ -68,20 +78,31 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(event) {
-    let email = this.state.email;
-    let pwd = this.state.password;
+    let user = {
+      email: this.state.email,
+      first_name: this.state.fname,
+      last_name: this.state.lname,
+      password: this.state.password,
+      avatar: this.state.img,
+    };
 
     if (this.state.submitBool) {
       axios({
         method: "get",
-        url: "http://localhost:3000/AAAUsers?email=" + email,
+        url: "http://localhost:3000/AAAUsers?email=" + user.email,
       }).then(
         (response) => {
-          if (response.data[0].password === pwd) {
+          if (response.data[0].password === user.password) {
             // does password match with database
+            user.first_name = response.data[0].first_name;
+            user.last_name = response.data[0].last_name;
+            user.avatar = response.data[0].avatar;
+            localStorage.clear();
+            localStorage.setItem("logUser", JSON.stringify(user));
+
             this.setState({ redirect: "/homepage" });
           } else {
-            this.setState({ wrongPassword: "wrongPassword flagWrongPassword" });
+            this.setState({ wrongPassword: "flagWrongPassword" });
           }
         },
         (error) => {
@@ -94,6 +115,9 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
     return (
       <form
         className="wrapper"
@@ -115,7 +139,7 @@ class LoginForm extends React.Component {
           This Email Is Not Registered
         </span>
 
-        <label htmlFor="pwd">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
           placeholder="Enter Password"
@@ -125,15 +149,19 @@ class LoginForm extends React.Component {
           onChange={this.handleChange}
           required
         ></input>
-        <span className={this.state.wrongPassword}>
+        <div className={this.state.wrongPassword}>
           This Password Is Not Correct
-        </span>
+        </div>
 
-
-        <div className='loginOuterButtons'>
-        <input type="submit" value="Submit" disabled={!this.state.submitBool} ></input>
-        <Link to="/CreateAccountForm" className='linkRedirect'><p className='linkButton' >CreateAccountForm</p></Link>
-
+        <div className="loginOuterButtons">
+          <input
+            type="submit"
+            value="Submit"
+            disabled={!this.state.submitBool}
+          ></input>
+          <Link to="/CreateAccountForm" className="linkRedirect">
+            <p className="linkButton">CreateAccountForm</p>
+          </Link>
         </div>
       </form>
     );
