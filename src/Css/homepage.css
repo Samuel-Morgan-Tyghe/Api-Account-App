@@ -1,5 +1,6 @@
 * {
-  border: 1px solid red; }
+  border: 1px solid red;
+}
 
 .outerApi {
   display: flex;
@@ -7,47 +8,54 @@
   align-content: center;
   justify-content: center;
   padding: 2rem;
-  background-color: #F1E3E4;
+  background-color: #f1e3e4;
   background-image: url("https://media1.thehungryjpeg.com/thumbs2/ori_1199_rs08lbcg1tg7b8l3rsdjwqa73z91wuy5q0l0fkvd_photocopy-noise-texture-pack.jpg");
-  background-blend-mode: overlay; }
-  .outerApi .buttonOuterFlow button, .outerApi .buttonOuterFlow #signOut {
-    align-content: center;
-    justify-content: center;
-    margin: 10px;
-    display: flex;
-    width: 100%; }
+  background-blend-mode: overlay;
+}
+.outerApi .buttonOuterFlow button,
+.outerApi .buttonOuterFlow #signOut {
+  align-content: center;
+  justify-content: center;
+  margin: 10px;
+  display: flex;
+  width: 100%;
+}
 
 .apiListInner {
   text-align: center;
   max-width: 400px;
-  border: 2px solid #A288A6;
+  border: 2px solid #a288a6;
   margin: 10px;
   padding: 2rem;
   border-radius: 1vw 1vw 0 0;
   display: flexbox;
   background-color: #ffffff;
-  box-shadow: 3px 6px 4px #1C1D21; }
+  box-shadow: 3px 6px 4px #1c1d21;
+}
 
 .homepageOuterButtons {
   display: inline-flex;
   width: 100%;
   align-items: baseline;
   justify-content: space-between;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 button:not(.deleteButton) {
   display: inline;
   justify-self: flex-end;
-  padding: .5rem;
+  padding: 0.5rem;
   margin-top: 10px;
   border-radius: 1vw;
   border: 0;
-  background-color: #A288A6;
+  background-color: #a288a6;
   color: white;
   width: auto;
-  transition: 0.5s background ease; }
-  button:not(.deleteButton):hover {
-    background-color: #BB9BB0; }
+  transition: 0.5s background ease;
+}
+button:not(.deleteButton):hover {
+  background-color: #bb9bb0;
+}
 
 .deleteButton {
   position: flex;
@@ -57,34 +65,44 @@ button:not(.deleteButton) {
   padding: 0;
   cursor: pointer;
   justify-items: flex-end;
-  align-self: start; }
+  align-self: start;
+}
 
 .apiListtop {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+}
+.apiListtop img {
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+@media only screen and (max-width: 768px) {
   .apiListtop img {
-    margin-left: 50%;
-    Transform: translate(-50%); }
-    @media only screen and (max-width: 768px) {
-      .apiListtop img {
-        margin-left: 0;
-        Transform: translate(0); } }
+    margin-left: 0;
+    transform: translate(0);
+  }
+}
 
 @media only screen and (max-width: 768px) {
-  width: 100%; }
+  width: 100%;
+}
 
 .editableSize {
-  border: 2px solid #F1E3E4;
+  border: 2px solid #f1e3e4;
   margin: 2vw 0 0 0;
   border-radius: 2px;
-  text-align: left; }
+  text-align: left;
+}
 
 .flexRow {
   width: 400px;
-  flex-direction: row; }
-  @media only screen and (max-width: 768px) {
-    .flexRow {
-      width: 100%; } }
+  flex-direction: row;
+}
+@media only screen and (max-width: 768px) {
+  .flexRow {
+    width: 100%;
+  }
+}
 
 .flexcollumn {
   border-radius: 2px;
@@ -94,14 +112,17 @@ button:not(.deleteButton) {
   height: 100%;
   align-items: baseline;
   margin: auto;
-  text-align: center; }
+  text-align: center;
+}
 
 .loadingIcon {
   position: fixed;
   display: block;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+}
 
 .hideInput {
-  display: none; }
+  display: none;
+}

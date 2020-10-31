@@ -8,7 +8,7 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiList: [],
+      tempApiList: [],
       loadingIcon: "hideIcon",
       tempUser: {
         email: "",
@@ -21,8 +21,6 @@ class Homepage extends React.Component {
       logUser: null,
       email: "",
       redirect: false,
-      tempAvatar: this.myRef
-
     };
     if (localStorage.getItem("logUser") !== null) {
       this.state.logUser = JSON.parse(localStorage.getItem("logUser"));
@@ -33,13 +31,12 @@ class Homepage extends React.Component {
         pathname: "/",
       });
     }
+
     this.handleChange = this.handleChange.bind(this);
-    this.myRef = React.createRef();
     this.redirect = this.redirect.bind(this);
-    
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     axios({
       method: "get",
       url: "http://localhost:3000/AAAUsers",
@@ -48,8 +45,9 @@ class Homepage extends React.Component {
         this.setState({ loadingIcon: "loadingIcon" });
 
         this.setState({
-          apiList: response.data,
+          tempApiList: response.data,
         });
+
         this.setState({ loadingIcon: "hideIcon" });
       },
       (error) => {
@@ -57,32 +55,37 @@ class Homepage extends React.Component {
         console.log(error);
       }
     );
-  };
+  }
 
-  updateUser = (event) => {
-    // todo : add checks to not make multiple users ( if email - '1.' + email / wont update )
-    let id = event.target.value;
-    let userdata = this.state.apiList.find((x) => x.id == id);
+  updateUser = (i, event) => {
+    const id = event.target.value;
 
-    axios({
-      method: "PATCH",
-      url: "http://localhost:3000/AAAUsers/" + id,
+    // const userdata = this.state.tempApiList[id];
+    const userdata = this.state.tempApiList.map((item, j) => {
+      if (item.id == id) {
+        axios({
+          method: "PATCH",
+          url: "http://localhost:3000/AAAUsers/" + id,
 
-      data: {
-        email: userdata.email,
-        first_name: userdata.first_name,
-        last_name: userdata.last_name,
-        password: userdata.password,
-        avatar: userdata.avatar,
-      },
-    })
-      .then((response) => {
-        this.componentDidMount();
-        this.setState({ loadingIcon: "hideIcon" });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+          data: {
+            email: item.email,
+            first_name: item.first_name,
+            last_name: item.last_name,
+            password: item.password,
+            avatar: item.avatar,
+          },
+        })
+          .then((response) => {
+            this.setState({ loadingIcon: "hideIcon" });
+            // this.componentDidMount()
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
+
+    event.preventDefault();
   };
 
   deleteUser(email, id, event) {
@@ -133,35 +136,33 @@ class Homepage extends React.Component {
       });
   };
 
-  handleChange(id, name, value, event) {
-
-if(name === 'avatar'){
-
-  value = event.target.files[0].name
-  this.setState({tempAvatar: value})
-
-console.log('change avatar')
-}
-
-  let new_tempUser = null;
-    if (id !== this.state.tempUser.id) { //if this user exists
-      console.log('trigger 1')
-
-      new_tempUser = this.state.apiList.find((x) => x.id === id);
-    } else { 
-      new_tempUser = { ...this.state.tempUser };
-      console.log('trigger 2')
-    }
-    console.log('trigger 3')
-    console.log(this.state.tempUser)
-
-
-    new_tempUser[name] = value;
-
-    this.setState({ tempUser: new_tempUser });
+  findValue(id) {
+    this.state.tempApiList.find((x) => x.id == id);
   }
 
-  
+  handleChange = (id, event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState((state) => {
+      const tempApiList = state.tempApiList.map((item, j) => {
+        if (item.id == id) {
+          if (name == "avatar") {
+            item[name] = event.target.files[0].name;
+          } else {
+            item[name] = value;
+          }
+          return item;
+        } else {
+          return item;
+        }
+      });
+
+
+      return {
+        tempApiList,
+      };
+    });
+  };
 
   redirect() {
     this.setState({ redirect: true });
@@ -193,7 +194,6 @@ console.log('change avatar')
             Sign Out
           </button>
         </div>
-
         {welcomeMessage}
         <img
           className={this.state.loadingIcon}
@@ -202,128 +202,99 @@ console.log('change avatar')
           height="300px"
           alt="Profile Pictures"
         ></img>
-
-        {this.state.apiList.map((content) => (
-          <div className={"apiListInner"} key={content.id}>
+        {this.state.tempApiList.map((content) => (
+          <form className={"tempApiListInner"} key={content.id}>
             <div className={"flexRow"}>
-           
+              <div className="tempApiListtop">
+                <input
+                  className="hideInput"
+                  type="file"
+                  id="file-input"
+                  name="avatar"
+                  accept="image/*"
+                  onChange={
+                    (e) => this.handleChange(content.id, e)
+                    // for some reason .map lists this as only ever the first value in array(0)
+                  }
+                />
+                <label htmlFor="file-input">
+                  <img
+                    src={content.avatar}
+                    width="128px"
+                    height="128px"
+                    alt="Profile Pictures"
+                  ></img>
+                </label>
 
-
-              <div className='apiListtop' >
-
-              <label htmlFor="file-input">
-              <img
-                src={content.avatar}
-                width="128px"
-                height="128px"
-                alt="Profile Pictures"
-              >
-              </img>
-              </label>
-              <input className='hideInput' type="file" id="file-input" ref={this.fileInput} 
-              accept="image/*"
-              onChange={(e) => this.handleChange
-                (content.id,
-                    "avatar",
-                    this.fileInput,
-                    e
-                    )}
- />
-
-            
-              <button
-                className="deleteButton"
-                onClick={(e) => {
-                  this.deleteUser(content.email, content.id);
-                }}
-                value={content.id}
-              >
-                <img src={deleteIcon}></img>
-              </button>
-
-              
+                <button
+                  className="deleteButton"
+                  onClick={(e) => {
+                    this.deleteUser(content.email, content.id);
+                  }}
+                  value={content.id}
+                >
+                  <img src={deleteIcon}></img>
+                </button>
               </div>
-
               <p className={"flexcollumn"}>Email:</p>
 
-              <div
+              <input
                 className={"editableSize"}
-                onBlur={(e) => {
-                  this.handleChange(
-                    content.id,
-                    "email",
-                    e.currentTarget.textContent,
-                    e
-                  );
-                }}
-                suppressContentEditableWarning
-                contentEditable="true"
+                name="email"
                 value={content.email}
-              >
-                {content.email}
-              </div>
+                placeholder={this.value}
+                onChange={(e) => {
+                  this.handleChange(content.id, e);
+                }}
+              ></input>
             </div>
-
             <div className={"flexRow"}>
               <p className={"flexcollumn"}>First Name: </p>
-              <div
+              <input
                 className={"editableSize"}
-                onBlur={(e) => {
-                  this.handleChange(
-                    content.id,
-                    "first_name",
-                    e.currentTarget.textContent,
-                    e
-                  );
+                name="first_name"
+                value={content.first_name}
+                placeholder={this.value}
+                onChange={(e) => {
+                  this.handleChange(content.id, e);
                 }}
-                suppressContentEditableWarning
-                contentEditable="true"
-              >
-                {content.first_name}
-              </div>
+              ></input>
             </div>
-
             <div className={"flexRow"}>
               <p className={"flexcollumn"}>Last Name: </p>
-              <div
+              <input
                 className={"editableSize"}
-                onBlur={(e) => {
-                  this.handleChange(
-                    content.id,
-                    "last_name",
-                    e.currentTarget.textContent,
-                    e
-                  );
+                name="last_name"
+                value={content.last_name}
+                placeholder={this.value}
+                onChange={(e) => {
+                  this.handleChange(content.id, e);
                 }}
-                suppressContentEditableWarning
-                contentEditable="true"
-              >
-                {content.last_name}{" "}
-              </div>
+              ></input>
             </div>
-
             <div className={"flexRow"}>
               <p className={"flexcollumn"}>Password: </p>
-              <div
+              <input
                 className={"editableSize"}
-                suppressContentEditableWarning
-                contentEditable="true"
-              >
-                {content.password}{" "}
-              </div>
+                name="password"
+                value={content.password}
+                placeholder={this.value}
+                onChange={(e) => {
+                  this.handleChange(content.id, e);
+                }}
+              ></input>
             </div>
-
             <div className="homepageOuterButtons">
               <button
                 onClick={(e) => {
-                  this.updateUser(e);
+                  this.updateUser(content.id, e);
                 }}
                 value={content.id}
               >
-                Update User : {content.id}
+                Update user
               </button>
             </div>
-          </div>
+          </form>
         ))}
       </div>
     );

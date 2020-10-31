@@ -103,7 +103,7 @@ class CreateAccountForm extends React.Component {
         last_name: this.state.lname,
         password: this.state.password,
         avatar: this.state.img,
-        id: 0
+        id: 0,
       };
 
       if (user.avatar === "") {
@@ -120,7 +120,7 @@ class CreateAccountForm extends React.Component {
         (response) => {
           if (response.data.length === 0) {
             //if email is not taken
-            user.id = response.data.id
+            user.id = response.data.id;
             axios({
               method: "post",
               url: "http://localhost:3000/AAAUsers",
@@ -132,9 +132,6 @@ class CreateAccountForm extends React.Component {
             });
           } else {
           }
-
-
-
         },
         (error) => {
           console.log(error);
