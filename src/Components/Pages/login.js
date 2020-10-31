@@ -49,7 +49,8 @@ class LoginForm extends React.Component {
       [name]: value,
     });
 
-    if (name === "email") {
+    if (name == "email") {
+      
       //check and get email is it in database?
       this.setState({ submitBool: false });
 

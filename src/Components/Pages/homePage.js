@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import loadingIcon from "../../Assets/yy3.gif";
+import loadingIcon from "../../Assets/loading2.gif";
 import { Redirect } from "react-router-dom";
-import deleteIcon from "../../Assets/1632602.svg";
+import deleteIcon from "../../Assets/cancel.png";
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Homepage extends React.Component {
     if (localStorage.getItem("logUser") !== null) {
       this.state.logUser = JSON.parse(localStorage.getItem("logUser"));
     } else {
-      alert("How did you get here?, Hold on whilst i redirect you");
+      // alert("How did you get here?, Hold on whilst i redirect you");
       this.setState({ redirect: true });
       this.props.history.push({
         pathname: "/",
@@ -36,7 +36,8 @@ class Homepage extends React.Component {
     this.redirect = this.redirect.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
+    this.setState({tempUser: []})
     axios({
       method: "get",
       url: "http://localhost:3000/AAAUsers",
@@ -90,6 +91,8 @@ class Homepage extends React.Component {
 
   deleteUser(email, id, event) {
     this.setState({ loadingIcon: "loadingIcon" });
+
+    //this returns /avatar=...   why?
     axios({
       method: "DELETE",
       url: "http://localhost:3000/AAAUsers/" + id,
@@ -101,12 +104,14 @@ class Homepage extends React.Component {
           this.setState({ redirect: true });
         }
 
-        this.componentDidMount();
+        // this.componentDidMount();
         this.setState({ loadingIcon: "hideIcon" });
       })
       .catch((error) => {
         console.log(error);
       });
+
+      event.preventDefault();
   }
 
   addUser = () => {
@@ -128,8 +133,8 @@ class Homepage extends React.Component {
       },
     })
       .then((response) => {
-        this.componentDidMount();
         this.setState({ loadingIcon: "hideIcon" });
+        this.componentDidMount();
       })
       .catch((error) => {
         console.log(error);
@@ -175,8 +180,8 @@ class Homepage extends React.Component {
     if (this.state.logUser != undefined) {
       welcomeMessage = (
         <h1>
-          Hello {this.state.logUser.first_name}, Welcome to the Api Account
-          Application
+          Hello <i>{this.state.logUser.first_name}</i>, Welcome to the <b>Api Account
+          Application</b>
         </h1>
       );
     }
@@ -189,24 +194,30 @@ class Homepage extends React.Component {
     return (
       <div className="outerApi">
         <div className="buttonOuterFlow">
-          <button onClick={this.addUser}>Add User</button>
-          <button id="signOut" onClick={this.redirect}>
+           <div className='welcomeMessage'>{welcomeMessage}</div>
+           
+          <div className='topButtonContainer'><button  onClick={this.addUser}>Add User</button>
+          <button  onClick={this.redirect}>
             Sign Out
-          </button>
+          </button></div>
         </div>
-        {welcomeMessage}
         <img
           className={this.state.loadingIcon}
           src={loadingIcon}
-          width="300px"
-          height="300px"
-          alt="Profile Pictures"
         ></img>
         {this.state.tempApiList.map((content) => (
-          <form className={"tempApiListInner"} key={content.id}>
-            <div className={"flexRow"}>
-              <div className="tempApiListtop">
-                <input
+          <form className="tempApiListInner" key={content.id}>
+              <div className="tempApiListTop">
+                <div className="imgBorder">
+                 <label htmlFor="file-input">
+                  <img
+
+                    src={content.avatar}
+                    width="128px"
+                    height="128px"
+                    alt="Profile Pictures"
+                  ></img>
+                   <input
                   className="hideInput"
                   type="file"
                   id="file-input"
@@ -217,15 +228,12 @@ class Homepage extends React.Component {
                     // for some reason .map lists this as only ever the first value in array(0)
                   }
                 />
-                <label htmlFor="file-input">
-                  <img
-                    src={content.avatar}
-                    width="128px"
-                    height="128px"
-                    alt="Profile Pictures"
-                  ></img>
-                </label>
-
+                </label></div>
+                <div className="homepageOuterButtons">
+             
+            
+                
+<div className='deleteUpdatContainer'>
                 <button
                   className="deleteButton"
                   onClick={(e) => {
@@ -233,9 +241,20 @@ class Homepage extends React.Component {
                   }}
                   value={content.id}
                 >
+                  
                   <img src={deleteIcon}></img>
                 </button>
-              </div>
+              </div>     <div className='updateUserButtonOuter'>
+              <button
+                onClick={(e) => {
+                  this.updateUser(content.id, e);
+                }}
+                value={content.id}
+              >
+                Update user
+              </button>
+              </div></div></div>
+              <div className="flexRow">    
               <p className={"flexcollumn"}>Email:</p>
 
               <input
@@ -284,16 +303,7 @@ class Homepage extends React.Component {
                 }}
               ></input>
             </div>
-            <div className="homepageOuterButtons">
-              <button
-                onClick={(e) => {
-                  this.updateUser(content.id, e);
-                }}
-                value={content.id}
-              >
-                Update user
-              </button>
-            </div>
+            
           </form>
         ))}
       </div>

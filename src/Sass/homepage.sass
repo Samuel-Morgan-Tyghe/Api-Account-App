@@ -1,8 +1,7 @@
+@import ./Theme
 
 *
-  border: 1px solid red
-  
-  
+  // border: 1px solid red
   
   
   
@@ -12,129 +11,233 @@
   flex-flow: row wrap
   align-content: center
   justify-content: center
-  padding: 2rem
-  background-color: #F1E3E4
-  background-image: url('https://media1.thehungryjpeg.com/thumbs2/ori_1199_rs08lbcg1tg7b8l3rsdjwqa73z91wuy5q0l0fkvd_photocopy-noise-texture-pack.jpg')
-  background-blend-mode: overlay
+  background-color: $color5
+  color: $color3
+  // background-image: url('https://media1.thehungryjpeg.com/thumbs2/ori_1199_rs08lbcg1tg7b8l3rsdjwqa73z91wuy5q0l0fkvd_photocopy-noise-texture-pack.jpg')
+  // background-blend-mode: overlay
+ 
    
 
-  .buttonOuterFlow
-    button, #signOut
-      align-content: center
-      justify-content: center
-      margin: 10px
-      padding:
-      display: flex
-      width: 100%
-
-.apiListInner
-  text-align: center
-  max-width: 400px
-  border: 2px solid #A288A6
-  margin: 10px
-  padding: 2rem
-  border-radius: 1vw 1vw 0 0
-  display: flexbox
-  background-color: #ffffff
-  box-shadow: 3px 6px 4px #1C1D21
-
-
-
-
-
-.homepageOuterButtons
-  display: inline-flex
+.buttonOuterFlow
+  z-index: 10
+  // position: fixed
+  display: flex
   width: 100%
-  align-items: baseline
-  justify-content: space-between
-  text-decoration: none
+  align-items: center
+  justify-content: space-around
+  background-color: $color4
+  padding: 10px
 
-
-button:not(.deleteButton) 
-  display: inline
-  justify-self: flex-end
-  padding: .5rem
-  margin-top: 10px  // not sure
-  border-radius: 1vw 
-  border: 0
-  background-color: #A288A6
-  color: white
-  width: auto
-  transition: 0.5s background ease
-  &:hover
-    background-color: #BB9BB0
-
-.deleteButton
-  position: flex
-  background: none
-  color: inherit
-  border: none
-  padding: 0
-  cursor: pointer
-  justify-items: flex-end
-  align-self: start
-  
+  .topButtonContainer
+      justify-content: space-around
+      button 
+        margin: 0 5vw 0 5vw
+        text-align: center
+        padding: .5vw
+  .welcomeMessage
+    background-color: $color1
+    color: $color6
+    align-self: center
+    border-bottom: 5px solid $color1
+    font-size: 20px
+    border-radius: 10px
+    padding: 20px
+    i 
+      color: $color5
   
 
 
+.tempApiListInner
+  width: 100%
+  max-width: 300px
+  border: 2px solid $color3
+  margin: 2vw
+  padding: 2vw
+  border-radius: 1vw 1vw 0 0
+  background-color: $color5
+  box-shadow: 3px 6px 9px $color1
+  // box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85)
 
 
-
-.apiListtop
+.tempApiListTop
   display: flex
   justify-content: space-between
   img 
-    margin-left: 50%
-    Transform: translate(-50%, )
-    @media only screen and (max-width: 768px) 
-      margin-left: 0
-      Transform: translate(0, )
+    border-radius: 3vw
+
+
+  .imgBorder
+    padding: 10px
+    border-radius: 3vw
+    border: 2px dashed $color1
+    // animation: border-dance .4s infinite alternate 
+    // @keyframes border-dance 
+    //   0% 
+    //     border: 2px dashed $color1
+    //   100% 
+    //     border: 3px dashed $color1
+    label
+      display: flex
+
+
+.tempApiListTop
+  display: flex
+
+  img 
+  .deleteButton
+    background: none
+    border: none
+    cursor: pointer
+    justify-items: flex-end
+    align-self: start
+    justify-self: end
+    img
+    animation: spin .4s infinite alternate 
+    animation-play-state: paused
+    &:hover
+      animation-play-state: running
+@keyframes: spin 
+  100% 
+    transform: rotate(1turn)
+
+    //todo finish animation
+
+       
+     
 
 
 
+  
 
-@media only screen and (max-width: 768px) 
+.homepageOuterButtons
+  width: 100%
+  display: block
+  justify-items: end
+  text-decoration: none
+  align-items: end
+  justify-content: end
+  button
+    padding: .5vw
+.deleteUpdatContainer
+  display: flex
+  width: 100%
+  justify-content: flex-end
+.updateUserButtonOuter
+  width: 100%
+  display: flex
+  justify-content: flex-end
+  margin: auto
+  text-decoration: underline
+
+  
+
+
+
+  
+  
+
+.flexRow
+  display: inline-flex
+  flex-wrap: wrap
+  width: 100%
+  @media only screen and (max-width: 768px) 
     width: 100%
-
-  
-
-  
-
-
-
-  
+    
+    
+.flexRow
+  .editableSize, p
+    width: 100%
 
 
 
 
 .editableSize
-  border: 2px solid #F1E3E4
-  margin: 2vw 0 0 0
+  border: 2px solid $color3
+  background-color: $color4
+  margin: 0.2vw 0 0 0
   border-radius: 2px
-  text-align: left
+  transition: 0.5s background ease
+  &:hover, &:focus
+    
+    background-color: $color1
+    color: $color4
+
+//   animation: border-dance 1s ease-in-out 2s infinite alternate 
   
 
-.flexRow
-  width: 400px
-  flex-direction: row
-  @media only screen and (max-width: 768px) 
-    width: 100%
+// @keyframes border-dance 
+//   0% 
+//     border: 2px dashed $color1
+//   100% 
+//     border: 3px dashed $color1
+  
 
-.flexcollumn
-  border-radius: 2px
-  display: flex
-  flex-direction: column
-  width: 100%
-  height: 100%
-  align-items: baseline
-  margin: auto
-  text-align: center
+
+
+
+
+// .flexcollumn
+//   border-radius: 2px
+//   display: flex
+//   flex-direction: column
+//   width: 100%
+//   height: 100%
+//   align-items: baseline
+//   margin: auto
+//   text-align: center
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+button:not(.deleteButton) 
+  border-radius: 1vw 
+  border: 0
+  background-color: $color4
+  color: $color1
+  width: auto
+  transition: 0.5s background ease
+  &:hover
+    background-color: $color1
+    color: $color4
+
+.topButtonContainer button
+
+  color: $color5  
+  background-color: $color2
+
+
+  
+  
+
+
+
+  
+
+  
+
+
+
+  
+
+
+
+
 
 
 
 .loadingIcon
+  mix-blend-mode: multiply
   position: fixed
-  display: block
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
