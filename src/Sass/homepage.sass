@@ -2,8 +2,10 @@
 
 *
   // border: 1px solid red
-  
-  
+
+body
+  margin: 0
+
   
   
 .outerApi
@@ -63,33 +65,43 @@
     i 
       color: $color5
 
-
 .innerTopButtonContainer
   @media ( max-width: 730px )      
     width: 100%
     display: flex
     justify-content: space-evenly
-    button
-      background-color: red
+    
   
 .outerApilist
   display: flex
   flex-flow: row-reverse wrap-reverse
   align-content: center
   justify-content: center
+  padding: 2em
+  @media ( max-width: 730px )
+    padding: 0  
+    margin: 0
+      
 
 
 .tempApiListInner
   flex: 1 1 18em
-  max-width: 500px
+  min-width: 380px
+  max-width: 420px
   border: 2px solid $color3
-  margin: 2em
+  margin: 3em
   padding: 2em
   border-radius: 2vw 2vw 0 0
   background-color: $color5
-  box-shadow: .5vw .7vw 1.2vw $color3
-  background-image: url(../Assets/arttest2.png)
-  background-blend-mode: color
+  box-shadow: .3vw .4vw .3vw $color1
+  background-image: url(../Assets/arttest3.png)
+  background-blend-mode: color 
+  @media ( max-width: 730px )
+    width: 100%
+    max-width: auto
+    min-width: auto
+    padding: 5vw
+    margin: 5vw
 
   // box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85)
 
@@ -191,17 +203,33 @@
   
 
 .flexRow
-  display: inline-flex
-  flex-wrap: wrap
+  display: flex
+  flex-wrap: wrap-row
   width: 100%
+  align-items: center
+  @media ( max-width: 730px )
+    flex-wrap: wrap
+.outerLabel
+  width: 33%
+.outerInput
+  width: 100%
+  
+  .labels
+    width: 100%
+    margin-top: 10px
+    // flex-basis: 14em
+    // margin: 5px
+    // padding: 0
+    
+  .editableSize
+    width: 100%
+    margin: 10px 0 10px 0
+    flex-basis: 30em
+    // width: 330px
+    padding: 0.5em 0 0.5em 0
 
-  @media only screen and (max-width: 768px) 
-    width: 100%
-    
-    
-.flexRow
-  .editableSize, p
-    width: 100%
+.firstFlexRow
+  margin-top: 22px
 
 
 
@@ -214,7 +242,7 @@
   transition: 0.5s background ease
   &:hover, &:focus
     
-    background-color: $color3
+    background-color: $color2
     color: $color4
 
 //   animation: border-dance 1s ease-in-out 2s infinite alternate 
@@ -231,7 +259,7 @@
 
 
 
-// .flexcollumn
+// .labels
 //   border-radius: 2px
 //   display: flex
 //   flex-direction: column
@@ -275,10 +303,9 @@ button:not(.deleteButton)
   
 
 
-
-  
-
-  
+button
+  min-width: 42px
+  min-height: 42px
 
 
 

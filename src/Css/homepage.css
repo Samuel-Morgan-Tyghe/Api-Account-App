@@ -1,3 +1,6 @@
+body {
+  margin: 0; }
+
 .outerApi {
   display: flex;
   flex-flow: row wrap;
@@ -55,27 +58,38 @@
   .innerTopButtonContainer {
     width: 100%;
     display: flex;
-    justify-content: space-evenly; }
-    .innerTopButtonContainer button {
-      background-color: red; } }
+    justify-content: space-evenly; } }
 
 .outerApilist {
   display: flex;
   flex-flow: row-reverse wrap-reverse;
   align-content: center;
-  justify-content: center; }
+  justify-content: center;
+  padding: 2em; }
+  @media (max-width: 730px) {
+    .outerApilist {
+      padding: 0;
+      margin: 0; } }
 
 .tempApiListInner {
   flex: 1 1 18em;
-  max-width: 500px;
+  min-width: 380px;
+  max-width: 420px;
   border: 2px solid #707070;
-  margin: 2em;
+  margin: 3em;
   padding: 2em;
   border-radius: 2vw 2vw 0 0;
   background-color: #ffffff;
-  box-shadow: 0.5vw 0.7vw 1.2vw #707070;
-  background-image: url(../Assets/arttest2.png);
+  box-shadow: 0.3vw 0.4vw 0.3vw #202020;
+  background-image: url(../Assets/arttest3.png);
   background-blend-mode: color; }
+  @media (max-width: 730px) {
+    .tempApiListInner {
+      width: 100%;
+      max-width: auto;
+      min-width: auto;
+      padding: 5vw;
+      margin: 5vw; } }
 
 .tempApiListTop {
   display: flex;
@@ -138,15 +152,30 @@
   text-decoration: underline; }
 
 .flexRow {
-  display: inline-flex;
-  flex-wrap: wrap;
-  width: 100%; }
-  @media only screen and (max-width: 768px) {
+  display: flex;
+  flex-wrap: wrap-row;
+  width: 100%;
+  align-items: center; }
+  @media (max-width: 730px) {
     .flexRow {
-      width: 100%; } }
+      flex-wrap: wrap; } }
 
-.flexRow .editableSize, .flexRow p {
+.outerLabel {
+  width: 33%; }
+
+.outerInput {
   width: 100%; }
+  .outerInput .labels {
+    width: 100%;
+    margin-top: 10px; }
+  .outerInput .editableSize {
+    width: 100%;
+    margin: 10px 0 10px 0;
+    flex-basis: 30em;
+    padding: 0.5em 0 0.5em 0; }
+
+.firstFlexRow {
+  margin-top: 22px; }
 
 .editableSize {
   border: 2px solid #707070;
@@ -155,7 +184,7 @@
   border-radius: 2px;
   transition: 0.5s background ease; }
   .editableSize:hover, .editableSize:focus {
-    background-color: #707070;
+    background-color: #3F3F3F;
     color: #ffdF6c; }
 
 button:not(.deleteButton) {
@@ -172,6 +201,10 @@ button:not(.deleteButton) {
 .topButtonContainer button {
   color: #ffffff;
   background-color: #3F3F3F; }
+
+button {
+  min-width: 42px;
+  min-height: 42px; }
 
 .loadingIcon {
   mix-blend-mode: multiply;

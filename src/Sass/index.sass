@@ -30,12 +30,12 @@ $ruler: 16px
 .wrapper
   position: absolute
   width: 400px
-  border: 2px solid #A288A6
+  border: 2px solid $color1
   padding: 3rem
   border-radius: 10px
-  background-color: #F1E3E4
-  box-shadow: 3px 6px 4px #1C1D21
-  color: #1C1D21
+  background-color: $color5
+  box-shadow: 3px 6px 4px $color1
+  color: $color1
   top: 50%
   left: 50%
   -ms-transform: translate(-50%, -50%)
@@ -58,14 +58,16 @@ $ruler: 16px
     
 
   input, .altUploadAvatar , .linkButton
+    color: $color1
     display: block
     width: 100%
     border-radius: 5px
-    border: 2px solid #F1E3E4
+    border: 2px solid $color2
     padding: .5rem 0 .5rem 0
     transition: 0.5s background ease
-    &:hover
-      background-color: #F1E3E4
+    &:hover, &:focus
+      background-color: $color1
+      color: $color4
     &[type=file]
       display: none
     
@@ -80,11 +82,9 @@ $ruler: 16px
     color: white
     width: auto
     transition: 0.5s background ease
-    &:hover
-      background-color: #BB9BB0
-  
-
-  
+    &:hover, &:focus
+      background-color: $color1
+      color: $color4
 
 
 
@@ -105,7 +105,7 @@ $ruler: 16px
 
 .flagEmailInUse
   color: red
-  background-color: white
+  background-color: $color5
   display: flex
 
 
@@ -123,7 +123,7 @@ $ruler: 16px
 
 .flagEmailInUse
   color: red
-  background-color: white
+  background-color: $color5
   display: flex
 
 .wrongPassword

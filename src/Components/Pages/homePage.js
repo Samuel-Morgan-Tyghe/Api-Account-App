@@ -257,10 +257,10 @@ class Homepage extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="flexRow">
-              <p className={"flexcollumn"}>Email:</p>
+            <div className="flexRow firstFlexRow">
+              <div className='outerLabel'><label className={"labels"}>Email:</label></div>
 
-              <input
+              <div className= 'outerInput'><input
                 className={"editableSize"}
                 name="email"
                 value={content.email}
@@ -268,11 +268,11 @@ class Homepage extends React.Component {
                 onChange={(e) => {
                   this.handleChange(content.id, e);
                 }}
-              ></input>
+              ></input></div>
             </div>
-            <div className={"flexRow"}>
-              <p className={"flexcollumn"}>First Name: </p>
-              <input
+            <div className='flexRow'>
+            <div className='outerLabel'><label className={"labels"}>First Name: </label></div>
+            <div className= 'outerInput'><input
                 className={"editableSize"}
                 name="first_name"
                 value={content.first_name}
@@ -280,11 +280,11 @@ class Homepage extends React.Component {
                 onChange={(e) => {
                   this.handleChange(content.id, e);
                 }}
-              ></input>
+              ></input></div>
             </div>
-            <div className={"flexRow"}>
-              <p className={"flexcollumn"}>Last Name: </p>
-              <input
+            <div className='flexRow'>
+            <div className='outerLabel'><label className={"labels"}>Last Name: </label></div>
+              <div className= 'outerInput'><input
                 className={"editableSize"}
                 name="last_name"
                 value={content.last_name}
@@ -292,11 +292,11 @@ class Homepage extends React.Component {
                 onChange={(e) => {
                   this.handleChange(content.id, e);
                 }}
-              ></input>
+              ></input></div>
             </div>
-            <div className={"flexRow"}>
-              <p className={"flexcollumn"}>Password: </p>
-              <input
+            <div className='flexRow'>
+            <div className='outerLabel'><label className={"labels"}>Password: </label></div>
+            <div className= 'outerInput'><input
                 className={"editableSize"}
                 name="password"
                 value={content.password}
@@ -304,7 +304,7 @@ class Homepage extends React.Component {
                 onChange={(e) => {
                   this.handleChange(content.id, e);
                 }}
-              ></input>
+              ></input></div>
             </div>
           </form>
           
