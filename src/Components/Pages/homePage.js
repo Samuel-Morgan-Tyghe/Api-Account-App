@@ -3,6 +3,8 @@ import axios from "axios";
 import loadingIcon from "../../Assets/loading2.gif";
 import { Redirect } from "react-router-dom";
 import deleteIcon from "../../Assets/cancel.png";
+import fakeLogo from "../../Assets/fakeLogo.png";
+
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -37,7 +39,7 @@ class Homepage extends React.Component {
   }
 
   componentDidMount = () => {
-    this.setState({tempUser: []})
+    this.setState({ tempUser: [] });
     axios({
       method: "get",
       url: "http://localhost:3000/AAAUsers",
@@ -56,7 +58,7 @@ class Homepage extends React.Component {
         console.log(error);
       }
     );
-  }
+  };
 
   updateUser = (i, event) => {
     const id = event.target.value;
@@ -111,7 +113,7 @@ class Homepage extends React.Component {
         console.log(error);
       });
 
-      event.preventDefault();
+    event.preventDefault();
   }
 
   addUser = () => {
@@ -162,7 +164,6 @@ class Homepage extends React.Component {
         }
       });
 
-
       return {
         tempApiList,
       };
@@ -175,14 +176,13 @@ class Homepage extends React.Component {
 
   render() {
     let welcomeMessage = (
-      <h1>Hello Guest, Welcome to the Api Account Application</h1>
+      <h1>Hello Guest</h1>
     );
     if (this.state.logUser != undefined) {
       welcomeMessage = (
-        <h1>
-          Hello <i>{this.state.logUser.first_name}</i>, Welcome to the <b>Api Account
-          Application</b>
-        </h1>
+        <p>
+          Good to see you <i>{this.state.logUser.first_name}</i>
+        </p>
       );
     }
 
@@ -194,67 +194,70 @@ class Homepage extends React.Component {
     return (
       <div className="outerApi">
         <div className="buttonOuterFlow">
-           <div className='welcomeMessage'>{welcomeMessage}</div>
-           
-          <div className='topButtonContainer'><button  onClick={this.addUser}>Add User</button>
-          <button  onClick={this.redirect}>
-            Sign Out
-          </button></div>
+        <div className="logoWelcomeContainer">
+          <div className="width100"><div className="welcomeMessage">{welcomeMessage}</div></div>
+          <div className="width100"><img src={fakeLogo} ></img></div>
+
+          <div className="topButtonContainer">
+            <div className="innerTopButtonContainer">
+            <button onClick={this.addUser}>Add User</button>
+            <button onClick={this.redirect}>Sign Out</button>
+          </div>
+          </div>
+          </div>
         </div>
-        <img
-          className={this.state.loadingIcon}
-          src={loadingIcon}
-        ></img>
+        <img className={this.state.loadingIcon} src={loadingIcon}></img>
+
+        <div className='outerApilist'>
         {this.state.tempApiList.map((content) => (
           <form className="tempApiListInner" key={content.id}>
-              <div className="tempApiListTop">
-                <div className="imgBorder">
-                 <label htmlFor="file-input">
+            <div className="tempApiListTop">
+              <div className="imgBorder">
+                <label htmlFor="file-input">
                   <img
-
                     src={content.avatar}
                     width="128px"
                     height="128px"
                     alt="Profile Pictures"
                   ></img>
-                   <input
-                  className="hideInput"
-                  type="file"
-                  id="file-input"
-                  name="avatar"
-                  accept="image/*"
-                  onChange={
-                    (e) => this.handleChange(content.id, e)
-                    // for some reason .map lists this as only ever the first value in array(0)
-                  }
-                />
-                </label></div>
-                <div className="homepageOuterButtons">
-             
-            
-                
-<div className='deleteUpdatContainer'>
-                <button
-                  className="deleteButton"
-                  onClick={(e) => {
-                    this.deleteUser(content.email, content.id);
-                  }}
-                  value={content.id}
-                >
-                  
-                  <img src={deleteIcon}></img>
-                </button>
-              </div>     <div className='updateUserButtonOuter'>
-              <button
-                onClick={(e) => {
-                  this.updateUser(content.id, e);
-                }}
-                value={content.id}
-              >
-                Update user
-              </button>
-              </div></div></div>
-              <div className="flexRow">    
+                  <input
+                    className="hideInput"
+                    type="file"
+                    id="file-input"
+                    name="avatar"
+                    accept="image/*"
+                    onChange={
+                      (e) => this.handleChange(content.id, e)
+                      // for some reason .map lists this as only ever the first value in array(0)
+                    }
+                  />
+                </label>
+              </div>
+              <div className="homepageOuterButtons">
+                <div className="deleteUpdatContainer">
+                  <button
+                    className="deleteButton"
+                    onClick={(e) => {
+                      this.deleteUser(content.email, content.id);
+                    }}
+                    value={content.id}
+                  >
+                    <img src={deleteIcon}></img>
+                  </button>
+                </div>{" "}
+                <div className="updateUserButtonOuter">
+                  <button
+                    onClick={(e) => {
+                      this.updateUser(content.id, e);
+                    }}
+                    value={content.id}
+                  >
+                    Update user
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="flexRow">
               <p className={"flexcollumn"}>Email:</p>
 
               <input
@@ -303,9 +306,11 @@ class Homepage extends React.Component {
                 }}
               ></input>
             </div>
-            
           </form>
+          
+          
         ))}
+        </div>
       </div>
     );
   }
