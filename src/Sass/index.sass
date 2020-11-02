@@ -1,4 +1,5 @@
 @import url(https://indestructibletype.com/fonts/Jost.css)
+
 @import ./createAccount
 @import ./emailValidator
 @import ./homepage
@@ -8,157 +9,140 @@
 $ruler: 16px
 
 .nav-links
-  justify-content: space-around
-  list-style: none
+    justify-content: space-around
+    list-style: none
 
 .App
-  overflow: hidden
-
-  background-image: url(../Assets/arttest3.png)
-
+    overflow: hidden
+    background-image: url(../Assets/arttest3.png)
 
 .App *
-  font-family: 'jost'
-  font-size: $ruler
-  
+    font-family: "jost"
+    font-size: $ruler
 
 .background
-  width: 100vw
-  height: 100vh
-  margin: auto
-  padding: auto 
-  display: flex
-  justify-content: center
-  align-items: center
-  background-image: url(../Assets/BackgroundImage3.png)
+    width: 100vw
+    height: 100vh
+    margin: auto
+    padding: auto
+    display: flex
+    justify-content: center
+    align-items: center
+    background-image: url(../Assets/BackgroundImage3.png)
 
-  
 .wrapper
-  width: 100%
-  max-width: 400px
-  border: 2px solid $color1
-  padding: calc(2vw + 15px)
-  border-radius: 10px
-  background-color: $color5
-
-  box-shadow: 3px 6px 4px $color1
-  color: $color1
-
-  @media screen and ( max-width: 346px  )
-    padding: 10px
-    padding-bottom: 30px
-
-   
-
-  label 
-    display: block
+    width: 100%
+    max-width: 400px
+    border: 2px solid $color1
+    padding: calc(2vw + 15px)
     border-radius: 10px
-    padding: 1rem 0 .25rem 0
-    padding-left: 5px
-    max-width: calc( 100% - 5px )
-  .chooseAvatarUpload
-    padding: 0
- 
-
-    
-
-  input, .altUploadAvatar , .linkButton 
-    background-color: $color4
+    background-color: $color5
+    box-shadow: 3px 6px 4px $color1
     color: $color1
-    display: block
-    width: 100% 
-    border-radius: 5px
-    border: 2px solid $color2
-    padding: .5rem 0 .5rem 0
-    transition: 0.5s background ease
-    &:hover, &:focus, &:active,
-      background-color: $color1
-      color: $color4
-    &[type=file]
-      display: none
-   
 
-  input[ type=submit ],[type=reset], .linkButton
-    display: inline
-    justify-self: flex-end
-    padding: .5rem
-    margin-top: 10px  // not sure
-    border: 0
-    background-color: $color1
-    color: $color4
-    width: auto
-    transition: 0.5s background ease
-    &:hover, &:focus
-      background-color: $color4
-      color: $color1
+    @media screen and (max-width: 346px)
+        padding: 10px
+        padding-bottom: 30px
 
-  input, .altUploadAvatar
-    padding-left: 5px
-    max-width: calc( 100% - 5px )
- 
+    label
+        display: block
+        border-radius: 10px
+        padding: 1rem 0 0.25rem 0
+        padding-left: 5px
+        max-width: calc( 100% - 5px )
+
+    .chooseAvatarUpload
+        padding: 0
+
+    input, .altUploadAvatar, .linkButton
+        background-color: $color4
+        color: $color1
+        display: block
+        width: 100%
+        border-radius: 5px
+        border: 2px solid $color2
+        padding: 0.5rem 0 0.5rem 0
+        transition: 0.5s background ease
+
+        &:hover, &:focus, &:active
+            background-color: $color1
+            color: $color4
+
+        &[type=file]
+            display: none
+
+    input[type=submit], [type=reset], .linkButton
+        display: inline
+        justify-self: flex-end
+        padding: 0.5rem
+        margin-top: 10px
+        border: 0
+        background-color: $color1
+        color: $color4
+        width: auto
+        transition: 0.5s background ease
+
+        &:hover, &:focus
+            background-color: $color4
+            color: $color1
+
+    input, .altUploadAvatar
+        padding-left: 5px
+        max-width: calc( 100% - 5px )
 
 input::placeholder
-  color: $color1
+    color: $color1
+
 input:hover::placeholder
-  color: $color4
+    color: $color4
+
 input:focus::placeholder
-  color: $color4
+    color: $color4
 
-input:-webkit-autofill,
-  font-family: 'jost'
-  -webkit-box-shadow: 0 0 0 50px $color4 inset
-  -webkit-text-fill-color: $color1
-input:-webkit-autofill:hover, 
+input:-webkit-autofill
+    font-family: "jost"
+    -webkit-box-shadow: 0 0 0 50px $color4 inset
+    -webkit-text-fill-color: $color1
+
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
-  font-family: 'jost'
-  -webkit-box-shadow: 0 0 0 50px $color1 inset
-  -webkit-text-fill-color: $color4
-
-
- 
-
-
-
-
-
+    font-family: "jost"
+    -webkit-box-shadow: 0 0 0 50px $color1 inset
+    -webkit-text-fill-color: $color4
 
 // Functional Classes
 
 .hideIcon
-
-  display: none
+    display: none
 
 .linkRedirect
-  text-decoration: none
+    text-decoration: none
 
 .emailInUse
-  display: none
+    display: none
 
 .flagEmailInUse
-  color: $color7
-  background-color: $color5
-  display: flex
-
+    color: $color7
+    background-color: $color5
+    display: flex
 
 .flagValidator
-  border: dashed $color7
+    border: dashed $color7
 
 .hidePasswordCharAlert
-  display: none
+    display: none
 
 .hidePasswordNumAlert
-  display: none
+    display: none
 
 .emailNotInUse
-  display: none
+    display: none
 
 .flagEmailInUse
-  padding: 5px
-  color: $color7
-  background-color: $color5
-  display: flex
+    padding: 5px
+    color: $color7
+    background-color: $color5
+    display: flex
 
 .wrongPassword
-  display: none
-
-
+    display: none

@@ -34,46 +34,6 @@
       "first_name": "George",
       "last_name": "Edwards",
       "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/mrmoiree/128.jpg"
-    },
-    {
-      "id": 12,
-      "email": "test",
-      "first_name": "test",
-      "last_name": "test",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg",
-      "password": "test"
-    },
-    {
-      "email": "test",
-      "first_name": "test",
-      "last_name": "test",
-      "password": "test",
-      "avatar": "C:\\fakepath\\121485702_10157676643487882_7319246889883013738_o.jpg",
-      "id": 78
-    },
-    {
-      "email": "samuelmorgandsadsavisual@gmail.com",
-      "first_name": "Samuel",
-      "last_name": "Morgan-Tyghe",
-      "password": "dsadsadasd5",
-      "avatar": "https://randomuser.me/api/portraits/lego/4.jpg",
-      "id": 81
-    },
-    {
-      "email": "Email@email.com",
-      "first_name": "First_Name",
-      "last_name": "Last_Name",
-      "password": "Password",
-      "avatar": "https://randomuser.me/api/portraits/lego/8.jpg",
-      "id": 86
-    },
-    {
-      "email": "samuelmorganvisual@gmail.com",
-      "first_name": "Samuel",
-      "last_name": "Morgan-Tyghe",
-      "password": "fdsfsdfsd5",
-      "avatar": "https://randomuser.me/api/portraits/lego/7.jpg",
-      "id": 87
     }
   ]
 }

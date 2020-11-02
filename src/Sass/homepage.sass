@@ -5,8 +5,6 @@ $outergrid: 5vw
 body
   margin: 0
 
-  
-  
 .outerApi
   display: flex
   flex-flow: row wrap
@@ -15,8 +13,6 @@ body
   background-color: $color5
   color: $color2
   background-image: url(../Assets/background.png)
- 
-   
 
 .buttonOuterFlow
   z-index: 10
@@ -28,7 +24,7 @@ body
   padding: $outergrid
   padding-top: 5px
   padding-bottom: 5px
-  img 
+  img
     mix-blend-mode: multiply
     height: 100%
 
@@ -37,15 +33,15 @@ body
     width: 100%
     display: flex
     justify-content: space-evenly
-    @media ( max-width: 730px )      
+    @media ( max-width: 730px )
       flex-flow: column
-      img 
+      img
         width: 100%
         max-width: 400px
 
   .topButtonContainer
-    display: flex   
-    width: 100%   
+    display: flex
+    width: 100%
     height: 100%
     align-items: center
     justify-content: flex-end
@@ -53,8 +49,8 @@ body
     display: flex
     justify-content: flex-end
   @media ( max-width: 730px  )
-    justify-content: center    
-  button 
+    justify-content: center
+  button
     margin: 1em
     text-align: center
     padding: 1em
@@ -68,16 +64,15 @@ body
     border-radius: 10px
     padding: 1px 30px 1px 30px
     height: 60%
-    i 
+    i
       color: $color5
 
 .innerTopButtonContainer
-  @media ( max-width: 730px )      
+  @media ( max-width: 730px )
     width: 100%
     display: flex
     justify-content: space-evenly
-    
-  
+
 .outerApilist
   display: flex
   flex-flow: row-reverse wrap-reverse
@@ -85,10 +80,8 @@ body
   justify-content: center
   padding: $outergrid
   @media ( max-width: 730px )
-    padding: 0  
+    padding: 0
     margin: 0
-      
-
 
 .tempApiListInner
   flex: 1 1 18em
@@ -108,13 +101,11 @@ body
     padding: 5vw
     margin: 5vw
 
-
 .tempApiListTop
   display: flex
   justify-content: space-between
-  img 
+  img
     border-radius: 3vw
-
 
   .imgBorder
     padding: 10px
@@ -122,26 +113,11 @@ body
     border: 2px dashed $color3
     label
       display: flex
-      
-
 
 .tempApiListTop
   display: flex
 
-
-
-
-
-
-
     //todo finish animation
-
-       
-     
-
-
-
-  
 
 .homepageOuterButtons
   width: 100%
@@ -153,15 +129,15 @@ body
   flex-flow: wrap
   button
     padding: .5vw
-    
+
 .deleteUpdatContainer
   display: flex
   width: 100%
   height: 50%
   justify-content: flex-end
   border: none
-  img 
-  .deleteButton, 
+  img
+  .deleteButton,
     background: none
     border: none
     cursor: pointer
@@ -184,22 +160,12 @@ body
       transform: rotate(90deg)
       transition: all 1.3s ease-in-out 0s
 
-
-
-
 .updateUserButtonOuter
   width: 100%
   display: flex
   justify-content: flex-end
   margin: auto
   text-decoration: underline
-
-  
-
-
-
-  
-  
 
 .flexRow
   display: flex
@@ -213,11 +179,11 @@ body
   box-shadow: inset 0 0 80px $color5
 .outerInput
   width: 100%
-  
+
   .labels
     width: 100%
     margin-top: 10px
-    
+
   .editableSize
     width: 100%
     margin: 10px 0 10px 0
@@ -229,9 +195,6 @@ body
 .firstFlexRow
   margin-top: 22px
 
-
-
-
 .editableSize
   border: 2px solid $color3
   background-color: $color4
@@ -239,14 +202,12 @@ body
   border-radius: 2px
   transition: 0.5s background ease
   &:hover, &:focus
-    
+
     background-color: $color2
     color: $color4
 
-
-
-button:not(.deleteButton) 
-  border-radius: 1vw 
+button:not(.deleteButton)
+  border-radius: 1vw
   border: 0
   background-color: $color4
   color: $color1
@@ -265,24 +226,9 @@ button:not(.deleteButton)
 .updateUserButtonOuter button
   border-bottom: 2px solid $color1
 
-
-  
-  
-
-
 button
   min-width: 42px
   min-height: 42px
-
-
-
-  
-
-
-
-
-
-
 
 .loadingIcon
   mix-blend-mode: multiply
@@ -290,7 +236,6 @@ button
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
-
 
 .hideInput
   display: none
