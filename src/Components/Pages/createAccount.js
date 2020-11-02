@@ -146,108 +146,115 @@ class CreateAccountForm extends React.Component {
       return <Redirect to={this.state.redirect} />;
     }
     return (
-      <form
-        className="wrapper"
-        name="Create Account"
-        method="post"
-        onSubmit={this.handleSubmit}
-      >
-        <div className="innerWrapper">
-          <label htmlFor="email">Enter your email:</label>
-          <input
-            type="email"
-            placeholder="Enter Email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            className={this.state.emailClass}
-            required
-          ></input>
-          <span className={this.state.emailInUse}>
-            This Email Is already Registered
-          </span>
-
-          <label htmlFor="fname">First name:</label>
-          <input
-            type="text"
-            placeholder="Enter First Name"
-            name="fname"
-            value={this.state.fname}
-            onChange={this.handleChange}
-            required
-          ></input>
-
-          <label htmlFor="lname">Last name:</label>
-          <input
-            type="text"
-            placeholder="Enter Last Name"
-            name="lname"
-            value={this.state.lname}
-            onChange={this.handleChange}
-            required
-          ></input>
-
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="password"
-            autoComplete="off"
-            value={this.state.password}
-            onChange={this.handleChange}
-            required
-          ></input>
-          <span className={this.state.passwordChar}>
-            Password must contain at least 6 characthers
-          </span>
-          <span className={this.state.passwordNumber}>
-            Password must contain at least 1 numbers
-          </span>
-          <label className={"chooseAvatarlabel"} htmlFor="img">
-            Choose Avatar:
-          </label>
-          <label className={"chooseAvatarlabel"} htmlFor="img">
+      <div className="background">
+        <form
+          className="wrapper"
+          name="Create Account"
+          method="post"
+          onSubmit={this.handleSubmit}
+        >
+          <div className="innerWrapper">
+            <label htmlFor="email">Enter your email:</label>
             <input
-              className={"uploadAvatar"}
-              placeholder="chooseAvatar"
-              defaultValue=""
-              id="img"
-              type="file"
-              ref={this.fileInput}
-              name="img"
-              accept="image/*"
-              value={this.state.img}
+              type="email"
+              placeholder="Enter Email"
+              name="email"
+              value={this.state.email}
               onChange={this.handleChange}
+              className={this.state.emailClass}
+              required
             ></input>
-            <i
-              className="altUploadAvatar"
-              placeholder="Click Here to Upload Avatar"
-            >
-              Upload Avatar
-            </i>
-          </label>
+            <span className={this.state.emailInUse}>
+              This Email Is already Registered
+            </span>
 
-          <div className="termsWrapper">
-            <input className={"radioTerms"} type="checkbox" required></input>
-            <label className={"textTerms"} htmlFor="vehicle1">
-              <p>
-                Tick to accept the{" "}
-                <a href="https://en.wikipedia.org/wiki/Terms_of_service">
-                  Terms And Conditions
-                </a>
-              </p>{" "}
+            <label htmlFor="fname">First name:</label>
+            <input
+              type="text"
+              placeholder="Enter First Name"
+              name="fname"
+              value={this.state.fname}
+              onChange={this.handleChange}
+              required
+            ></input>
+
+            <label htmlFor="lname">Last name:</label>
+            <input
+              type="text"
+              placeholder="Enter Last Name"
+              name="lname"
+              value={this.state.lname}
+              onChange={this.handleChange}
+              required
+            ></input>
+
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              autoComplete="off"
+              value={this.state.password}
+              onChange={this.handleChange}
+              required
+            ></input>
+            <span className={this.state.passwordChar}>
+              Password must contain at least 6 characthers
+            </span>
+            <span className={this.state.passwordNumber}>
+              Password must contain at least 1 numbers
+            </span>
+            <label className={"chooseAvatarlabel"} htmlFor="img">
+              Choose Avatar:
             </label>
-          </div>
+            <label className={"chooseAvatarUpload"} htmlFor="img">
+              <input
+                className={"uploadAvatar"}
+                placeholder="chooseAvatar"
+                defaultValue=""
+                id="img"
+                type="file"
+                ref={this.fileInput}
+                name="img"
+                accept="image/*"
+                value={this.state.img}
+                onChange={this.handleChange}
+              ></input>
+              <i
+                className="altUploadAvatar"
+                placeholder="Click Here to Upload Avatar"
+              >
+                Upload Avatar
+              </i>
+            </label>
 
-          <div className="createOuterButtons">
-            <input type="submit" value="Submit" />
-            <input type="reset"></input>
-            <Link to="/LoginForm" className="linkRedirect">
-              <p className="linkButton">LoginForm</p>
-            </Link>
+            <div className="termsWrapper">
+              <input
+                className={"radioTerms"}
+                id="checkbox"
+                type="checkbox"
+                required
+              ></input>
+              <label className={"textTerms"} htmlFor="checkbox">
+                <p>
+                  Tick to accept the{" "}
+                  <a href="https://en.wikipedia.org/wiki/Terms_of_service">
+                    Terms And Conditions
+                  </a>
+                </p>{" "}
+              </label>
+            </div>
+
+            <div className="createOuterButtons">
+              <input type="submit" value="Submit" />
+              <input type="reset"></input>
+              <Link to="/LoginForm" className="linkRedirect">
+                <p className="linkButton">LoginForm</p>
+              </Link>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import deleteIcon from "../../Assets/cancel.png";
 import fakeLogo from "../../Assets/fakeLogo.png";
 
-
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -62,8 +61,6 @@ class Homepage extends React.Component {
 
   updateUser = (i, event) => {
     const id = event.target.value;
-
-    // const userdata = this.state.tempApiList[id];
     const userdata = this.state.tempApiList.map((item, j) => {
       if (item.id == id) {
         axios({
@@ -80,7 +77,7 @@ class Homepage extends React.Component {
         })
           .then((response) => {
             this.setState({ loadingIcon: "hideIcon" });
-            // this.componentDidMount()
+            this.componentDidMount();
           })
           .catch((error) => {
             console.log(error);
@@ -92,12 +89,11 @@ class Homepage extends React.Component {
   };
 
   deleteUser(email, id, event) {
-    this.setState({ loadingIcon: "loadingIcon" });
+    this.setState({ loadingIcon: "loadingIcon" }); // makes loading icon show
 
-    //this returns /avatar=...   why?
     axios({
       method: "DELETE",
-      url: "http://localhost:3000/AAAUsers/" + id,
+      url: "http://localhost:3000/AAAUsers/" + id, //find user by id then deletes it
     })
       .then((response) => {
         if (email === this.state.logUser.email) {
@@ -106,14 +102,12 @@ class Homepage extends React.Component {
           this.setState({ redirect: true });
         }
 
-        // this.componentDidMount();
-        this.setState({ loadingIcon: "hideIcon" });
+        this.componentDidMount();
+        this.setState({ loadingIcon: "hideIcon" }); // hides loading icon
       })
       .catch((error) => {
         console.log(error);
       });
-
-    event.preventDefault();
   }
 
   addUser = () => {
@@ -175,9 +169,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    let welcomeMessage = (
-      <h1>Hello Guest</h1>
-    );
+    let welcomeMessage = <h1>Hello Guest</h1>;
     if (this.state.logUser != undefined) {
       welcomeMessage = (
         <p>
@@ -194,122 +186,138 @@ class Homepage extends React.Component {
     return (
       <div className="outerApi">
         <div className="buttonOuterFlow">
-        <div className="logoWelcomeContainer">
-          <div className="width100"><div className="welcomeMessage">{welcomeMessage}</div></div>
-          <div className="width100"><img src={fakeLogo} ></img></div>
+          <div className="logoWelcomeContainer">
+            <div className="width1001">
+              <div className="welcomeMessage">{welcomeMessage}</div>
+            </div>
+            <div className="width100">
+              <img src={fakeLogo}></img>
+            </div>
 
-          <div className="topButtonContainer">
-            <div className="innerTopButtonContainer">
-            <button onClick={this.addUser}>Add User</button>
-            <button onClick={this.redirect}>Sign Out</button>
-          </div>
-          </div>
+            <div className="topButtonContainer">
+              <div className="innerTopButtonContainer">
+                <button onClick={this.addUser}>Add User</button>
+                <button onClick={this.redirect}>Sign Out</button>
+              </div>
+            </div>
           </div>
         </div>
         <img className={this.state.loadingIcon} src={loadingIcon}></img>
 
-        <div className='outerApilist'>
-        {this.state.tempApiList.map((content) => (
-          <form className="tempApiListInner" key={content.id}>
-            <div className="tempApiListTop">
-              <div className="imgBorder">
-                <label htmlFor="file-input">
-                  <img
-                    src={content.avatar}
-                    width="128px"
-                    height="128px"
-                    alt="Profile Pictures"
-                  ></img>
-                  <input
-                    className="hideInput"
-                    type="file"
-                    id="file-input"
-                    name="avatar"
-                    accept="image/*"
-                    onChange={
-                      (e) => this.handleChange(content.id, e)
-                      // for some reason .map lists this as only ever the first value in array(0)
-                    }
-                  />
-                </label>
+        <div className="outerApilist">
+          {this.state.tempApiList.map((content) => (
+            <div className="tempApiListInner" key={content.id}>
+              <div className="tempApiListTop">
+                <div className="imgBorder">
+                  <label htmlFor="file-input">
+                    <img
+                      src={content.avatar}
+                      width="128px"
+                      height="128px"
+                      alt="Profile Pictures"
+                    ></img>
+                    <input
+                      className="hideInput"
+                      type="file"
+                      id="file-input"
+                      name="avatar"
+                      accept="image/*"
+                      onChange={(e) => this.handleChange(content.id, e)}
+                    />
+                  </label>
+                </div>
+                <div className="homepageOuterButtons">
+                  <div className="deleteUpdatContainer">
+                    <div
+                      className="deleteButton"
+                      onClick={(e) => {
+                        this.deleteUser(content.email, content.id);
+                      }}
+                      value={content.id}
+                    >
+                      <img src={deleteIcon}></img>
+                    </div>
+                  </div>{" "}
+                  <div className="updateUserButtonOuter">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        this.updateUser(content.id, e);
+                      }}
+                      value={content.id}
+                    >
+                      Update user
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="homepageOuterButtons">
-                <div className="deleteUpdatContainer">
-                  <button
-                    className="deleteButton"
-                    onClick={(e) => {
-                      this.deleteUser(content.email, content.id);
+              <div className="flexRow firstFlexRow">
+                <div className="outerLabel">
+                  <label className={"labels"}>Email:</label>
+                </div>
+
+                <div className="outerInput">
+                  <input
+                    className={"editableSize"}
+                    name="email"
+                    value={content.email}
+                    placeholder={this.value}
+                    onChange={(e) => {
+                      this.handleChange(content.id, e);
                     }}
-                    value={content.id}
-                  >
-                    <img src={deleteIcon}></img>
-                  </button>
-                </div>{" "}
-                <div className="updateUserButtonOuter">
-                  <button
-                    onClick={(e) => {
-                      this.updateUser(content.id, e);
+                  ></input>
+                </div>
+              </div>
+              <div className="flexRow">
+                <div className="outerLabel">
+                  <label className={"labels"}>First Name: </label>
+                </div>
+                <div className="outerInput">
+                  <input
+                    className={"editableSize"}
+                    name="first_name"
+                    value={content.first_name}
+                    placeholder={this.value}
+                    onChange={(e) => {
+                      this.handleChange(content.id, e);
                     }}
-                    value={content.id}
-                  >
-                    Update user
-                  </button>
+                  ></input>
+                </div>
+              </div>
+              <div className="flexRow">
+                <div className="outerLabel">
+                  <label className={"labels"}>Last Name: </label>
+                </div>
+                <div className="outerInput">
+                  <input
+                    className={"editableSize"}
+                    name="last_name"
+                    value={content.last_name}
+                    placeholder={this.value}
+                    onChange={(e) => {
+                      this.handleChange(content.id, e);
+                    }}
+                  ></input>
+                </div>
+              </div>
+              <div className="flexRow">
+                <div className="outerLabel">
+                  <label className={"labels"}>Password: </label>
+                </div>
+                <div className="outerInput">
+                  <input
+                    className={"editableSize"}
+                    name="password"
+                    value={content.password}
+                    placeholder={this.value}
+                    onChange={(e) => {
+                      this.handleChange(content.id, e);
+                    }}
+                  ></input>
                 </div>
               </div>
             </div>
-            <div className="flexRow firstFlexRow">
-              <div className='outerLabel'><label className={"labels"}>Email:</label></div>
-
-              <div className= 'outerInput'><input
-                className={"editableSize"}
-                name="email"
-                value={content.email}
-                placeholder={this.value}
-                onChange={(e) => {
-                  this.handleChange(content.id, e);
-                }}
-              ></input></div>
-            </div>
-            <div className='flexRow'>
-            <div className='outerLabel'><label className={"labels"}>First Name: </label></div>
-            <div className= 'outerInput'><input
-                className={"editableSize"}
-                name="first_name"
-                value={content.first_name}
-                placeholder={this.value}
-                onChange={(e) => {
-                  this.handleChange(content.id, e);
-                }}
-              ></input></div>
-            </div>
-            <div className='flexRow'>
-            <div className='outerLabel'><label className={"labels"}>Last Name: </label></div>
-              <div className= 'outerInput'><input
-                className={"editableSize"}
-                name="last_name"
-                value={content.last_name}
-                placeholder={this.value}
-                onChange={(e) => {
-                  this.handleChange(content.id, e);
-                }}
-              ></input></div>
-            </div>
-            <div className='flexRow'>
-            <div className='outerLabel'><label className={"labels"}>Password: </label></div>
-            <div className= 'outerInput'><input
-                className={"editableSize"}
-                name="password"
-                value={content.password}
-                placeholder={this.value}
-                onChange={(e) => {
-                  this.handleChange(content.id, e);
-                }}
-              ></input></div>
-            </div>
-          </form>
-          
-          
-        ))}
+          ))}
         </div>
       </div>
     );

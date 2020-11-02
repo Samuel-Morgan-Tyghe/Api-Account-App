@@ -37,34 +37,19 @@
     },
     {
       "id": 12,
-      "email": "rachel.howell@reqres.in",
-      "first_name": "Rachel",
-      "last_name": "Howell",
-      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg"
+      "email": "test",
+      "first_name": "test",
+      "last_name": "test",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg",
+      "password": "test"
     },
     {
-      "email": "samuelmorganvisual@gmail.com",
-      "first_name": "dsadsa",
-      "last_name": "dsadsa",
-      "password": "dsadsdff45",
+      "email": "test",
+      "first_name": "test",
+      "last_name": "test",
+      "password": "test",
       "avatar": "C:\\fakepath\\121485702_10157676643487882_7319246889883013738_o.jpg",
       "id": 78
-    },
-    {
-      "email": "Email@email.com",
-      "first_name": "First_Name",
-      "last_name": "Last_Name",
-      "password": "Password",
-      "avatar": "https://randomuser.me/api/portraits/lego/1.jpg",
-      "id": 79
-    },
-    {
-      "email": "Email@email.com",
-      "first_name": "First_Name",
-      "last_name": "Last_Name",
-      "password": "Password",
-      "avatar": "https://randomuser.me/api/portraits/lego/2.jpg",
-      "id": 80
     },
     {
       "email": "samuelmorgandsadsavisual@gmail.com",
@@ -79,24 +64,16 @@
       "first_name": "First_Name",
       "last_name": "Last_Name",
       "password": "Password",
-      "avatar": "https://randomuser.me/api/portraits/lego/6.jpg",
-      "id": 82
+      "avatar": "https://randomuser.me/api/portraits/lego/8.jpg",
+      "id": 86
     },
     {
-      "email": "Email@email.com",
-      "first_name": "First_Name",
-      "last_name": "Last_Name",
-      "password": "Password",
-      "avatar": "https://randomuser.me/api/portraits/lego/6.jpg",
-      "id": 83
-    },
-    {
-      "email": "Email@email.com",
-      "first_name": "First_Name",
-      "last_name": "Last_Name",
-      "password": "Password",
-      "avatar": "https://randomuser.me/api/portraits/lego/5.jpg",
-      "id": 84
+      "email": "samuelmorganvisual@gmail.com",
+      "first_name": "Samuel",
+      "last_name": "Morgan-Tyghe",
+      "password": "fdsfsdfsd5",
+      "avatar": "https://randomuser.me/api/portraits/lego/7.jpg",
+      "id": 87
     }
   ]
 }

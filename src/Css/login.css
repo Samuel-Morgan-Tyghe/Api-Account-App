@@ -1,11 +1,14 @@
 .flagWrongPassword {
-  color: red;
-  background-color: white;
-  display: flex; }
+  padding: 5px;
+  color: #ff615c;
+  background-color: #ffffff;
+  display: flex;
+}
 
 .loginOuterButtons {
   display: inline-flex;
   width: 100%;
   align-items: baseline;
   justify-content: space-between;
-  text-decoration: none; }
+  text-decoration: none;
+}

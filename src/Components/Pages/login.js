@@ -119,51 +119,53 @@ class LoginForm extends React.Component {
       return <Redirect to={this.state.redirect} />;
     }
     return (
-      <form
-        className="wrapper"
-        name="loginForm"
-        method="post"
-        onSubmit={this.handleSubmit}
-      >
-        <label htmlFor="email">Enter your email:</label>
-        <input
-          type="email"
-          className={this.state.emailClass}
-          placeholder="Enter Email"
-          name="email"
-          value={this.state.email}
-          onChange={this.handleChange}
-          required
-        ></input>
-        <span className={this.state.emailNotInUse}>
-          This Email Is Not Registered
-        </span>
-
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          autoComplete="on"
-          value={this.state.password}
-          onChange={this.handleChange}
-          required
-        ></input>
-        <div className={this.state.wrongPassword}>
-          This Password Is Not Correct
-        </div>
-
-        <div className="loginOuterButtons">
+      <div className="background">
+        <form
+          className="wrapper"
+          name="loginForm"
+          method="post"
+          onSubmit={this.handleSubmit}
+        >
+          <label htmlFor="email">Enter your email:</label>
           <input
-            type="submit"
-            value="Submit"
-            disabled={!this.state.submitBool}
+            type="email"
+            className={this.state.emailClass}
+            placeholder="Enter Email"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            required
           ></input>
-          <Link to="/CreateAccountForm" className="linkRedirect">
-            <p className="linkButton">CreateAccountForm</p>
-          </Link>
-        </div>
-      </form>
+          <span className={this.state.emailNotInUse}>
+            This Email Is Not Registered
+          </span>
+
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            autoComplete="on"
+            value={this.state.password}
+            onChange={this.handleChange}
+            required
+          ></input>
+          <div className={this.state.wrongPassword}>
+            This Password Is Not Correct
+          </div>
+
+          <div className="loginOuterButtons">
+            <input
+              type="submit"
+              value="Submit"
+              disabled={!this.state.submitBool}
+            ></input>
+            <Link to="/CreateAccountForm" className="linkRedirect">
+              <p className="linkButton">CreateAccountForm</p>
+            </Link>
+          </div>
+        </form>
+      </div>
     );
   }
 }
