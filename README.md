@@ -3,7 +3,7 @@
 Clone repository into preferred IDE
 
 
-Run run these two commands
+Run these two commands in IDE terminal
 
 
 > ### json-server --watch AAAdb.json
@@ -11,8 +11,9 @@ Run run these two commands
 > ### npm start
 
 If the following error appears 
-> "'react-scripts' is not recognized as an internal or external command"
-run: 
+*"'react-scripts' is not recognized as an internal or external command"*
+
+Run: 
 
 > ### npm i react-scripts
 
