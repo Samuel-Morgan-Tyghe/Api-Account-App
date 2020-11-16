@@ -18,11 +18,7 @@ run:
 #### npm i react-scripts
 
 
-![Preview](Preview (1).gif)
-
-
-
-![Preview](Preview (2).gif)
-![Preview](Preview (3).gif)
-![Preview](Preview (4).gif)
-
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(4).gif)
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(3).gif)
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(2).gif)
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(1).gif)
