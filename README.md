@@ -17,7 +17,7 @@ If "'react-scripts' is not recognized as an internal or external command"
 run: 
 #### npm i react-scripts
 
-
+## Previews
 ![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(4).gif)
 ![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(3).gif)
 ![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(2).gif)
