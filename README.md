@@ -16,3 +16,10 @@ To start the Project run run these two commands
 If "'react-scripts' is not recognized as an internal or external command"
 run: 
 #### npm i react-scripts
+
+
+![Preview](Preview (1).gif)
+![Preview](Preview (2).gif)
+![Preview](Preview (3).gif)
+![Preview](Preview (4).gif)
+
