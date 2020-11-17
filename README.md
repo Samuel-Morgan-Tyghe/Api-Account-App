@@ -19,7 +19,7 @@ Run these three commands in IDE terminal
 
 
 ## Previews
-![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(4).gif)
-![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(3).gif)
-![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(2).gif)
-![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGif/Preview%20(1).gif)
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGifs/Preview%20(4).gif)
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGifs/Preview%20(3).gif)
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGifs/Preview%20(2).gif)
+![Preview](https://github.com/Samuel-Morgan-Tyghe/Api-Account-App/blob/master/PreviewGifs/Preview%20(1).gif)
