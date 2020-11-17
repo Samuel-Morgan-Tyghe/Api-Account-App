@@ -3,19 +3,14 @@
 Clone repository into preferred IDE
 
 
-Run these two commands in IDE terminal
+Run these three commands in IDE terminal
 
+> ### npx json-server --watch db.json
 
-> ### json-server --watch AAAdb.json
+> ### npm i react-scripts
 
 > ### npm start
 
-If the following error appears 
-*"'react-scripts' is not recognized as an internal or external command"*
-
-Run: 
-
-> ### npm i react-scripts
 
 ## What can be improved
 - Reduce Cumulative Layout Shift and create 'confirm' actions
