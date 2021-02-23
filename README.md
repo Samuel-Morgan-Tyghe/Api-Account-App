@@ -5,7 +5,7 @@ Clone repository into preferred IDE
 
 Run these three commands in IDE terminal
 
-> ### npx json-server --watch db.json
+> ### npx json-server --watch AAAdb.json
 
 > ### npm i react-scripts
 
